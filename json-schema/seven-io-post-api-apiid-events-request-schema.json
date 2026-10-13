@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/seven-io/main/json-schema/seven-io-post-api-apiid-events-request-schema.json",
+  "title": "PostApiApiidEventsRequest",
+  "x-generated": "2026-10-13",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/seven-io-openapi-generated.yml#/components/schemas/PostApiApiidEventsRequest",
+  "type": "object",
+  "properties": {
+    "from": {
+      "type": "string",
+      "description": "Your registered WhatsApp Business sender number."
+    },
+    "to": {
+      "type": "string",
+      "description": "Recipient phone number in international format."
+    },
+    "event": {
+      "type": "string",
+      "description": "The event type: read, is_typing, or reaction."
+    },
+    "msg_id": {
+      "type": "string",
+      "description": "Explicit message ID to mark as read."
+    },
+    "message_id": {
+      "type": "string",
+      "description": "The WhatsApp message ID of the message to react to."
+    },
+    "emoji": {
+      "type": "string",
+      "description": "The emoji to use as reaction."
+    }
+  },
+  "required": [
+    "event"
+  ]
+}

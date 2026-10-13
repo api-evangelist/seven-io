@@ -1,23 +1,114 @@
 aid: seven-io
+
 name: seven.io
-description: 'seven.io is a company surfaced via the API Evangelist harvest backlog (source: market-gap)
-  and added to the network as a stub for full-pipeline profiling.'
+
+image: https://www.seven.io/wp-content/uploads/Logo_Prev-1024x220.png
+
+description: seven.io (formerly sms77) is a German CPaaS provider in Kiel offering a REST API for SMS, voice calls, RCS, WhatsApp, number lookup
+  (HLR/MNP/CNAM), contacts and webhooks.
+
 url: https://raw.githubusercontent.com/api-evangelist/seven-io/refs/heads/main/apis.yml
+
 x-type: company
+
 x-source: harvest:market-gap
+
 x-tier: stub
+
 x-tier-reason: harvest
+
 specificationVersion: '0.20'
+
 created: '2026-10-13'
+
 modified: '2026-10-13'
+
 tags:
 - Company
-apis: []
+- SMS
+- Voice
+- Messaging
+- CPaaS
+- Germany
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+
 common:
+- type: Spectral
+  url: rules/seven-io-rules.yml
+- type: JSONLD
+  url: json-ld/seven-io-context.jsonld
+- type: Vocabulary
+  url: vocabulary/seven-io-vocabulary.yml
+- type: DataModel
+  url: data-model/seven-io-data-model.yml
+- type: Conformance
+  url: conformance/seven-io-conformance.yml
+- type: Hosts
+  url: hosts/seven-io-hosts.yml
+- type: IntegrationEdges
+  url: integrations/seven-io-integration-edges.yml
+- type: TermsOfService
+  url: https://www.seven.io/en/company/terms/
+- type: Support
+  url: https://help.seven.io/en
+- type: PrivacyPolicy
+  url: https://www.seven.io/en/company/privacy/
+- type: Pricing
+  url: https://www.seven.io/prices/
+- type: Newsroom
+  url: https://www.seven.io/en/company/press/
+- type: Login
+  url: https://app.seven.io/login
+- type: GitHubOrganization
+  url: https://github.com/seven-io
+- type: DeveloperPortal
+  url: https://www.seven.io/en/developer/
+- type: GettingStarted
+  url: https://help.seven.io/en/rcs/rcs-quickstart
+- type: DomainSecurity
+  url: security/seven-io-domain-security.yml
 - type: Website
   url: https://www.seven.io
+- type: Documentation
+  url: https://docs.seven.io/en
+- type: Authentication
+  url: https://docs.seven.io/en/rest-api/authentication
+- type: Webhooks
+  url: https://docs.seven.io/en/rest-api/webhooks
+- type: SDKs
+  url: https://docs.seven.io/en/rest-api/sdks
+- type: Blog
+  url: https://www.seven.io/en/blog/
+- type: ChangeLog
+  url: https://www.seven.io/en/changelog
+- type: StatusPage
+  url: https://status.seven.io
+
+apis:
+- aid: seven-io:seven-io-api
+  name: seven.io API
+  description: 'seven.io API as documented publicly: 23 operations. Contract generated from the documentation by API Evangelist (2026-10-13);
+    not the provider''s own document.'
+  humanURL: https://docs.seven.io/en/rest-api/endpoints/rcs
+  baseURL: https://gateway.seven.io
+  properties:
+  - type: OpenAPI
+    url: openapi/_ae-authored/seven-io-openapi-generated.yml
+    x-provenance: generated
+  - type: JSONSchema
+    url: json-schema/seven-io-patch-api-apiid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-waba-templates-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-rcs-agents-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-post-api-apiid-events-request-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-apiid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-apiid-id-response-schema.json

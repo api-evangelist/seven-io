@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/seven-io/main/json-schema/seven-io-get-api-waba-templates-response-schema.json",
+  "title": "GetApiWabaTemplatesResponse",
+  "x-generated": "2026-10-13",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/seven-io-openapi-generated.yml#/components/schemas/GetApiWabaTemplatesResponse",
+  "type": "object",
+  "properties": {
+    "templates": {
+      "type": "array",
+      "description": "Array of template objects."
+    },
+    "id": {
+      "type": "string",
+      "description": "Template ID."
+    },
+    "name": {
+      "type": "string",
+      "description": "Template name."
+    },
+    "language": {
+      "type": "string",
+      "description": "Template language."
+    },
+    "status": {
+      "type": "string",
+      "description": "Approval status as reported by WhatsApp."
+    },
+    "category": {
+      "type": "string",
+      "description": "Template category."
+    },
+    "rejected_reason": {
+      "type": "string",
+      "description": "Reason given by WhatsApp for a rejection."
+    },
+    "parameter_format": {
+      "type": "string",
+      "description": "POSITIONAL or NAMED parameter format."
+    },
+    "variables": {
+      "type": "object",
+      "description": "Placeholders to fill when sending."
+    },
+    "components": {
+      "type": "array",
+      "description": "Template definition as returned by WhatsApp."
+    }
+  }
+}

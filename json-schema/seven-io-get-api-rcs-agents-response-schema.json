@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/seven-io/main/json-schema/seven-io-get-api-rcs-agents-response-schema.json",
+  "title": "GetApiRcsAgentsResponse",
+  "x-generated": "2026-10-13",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/seven-io-openapi-generated.yml#/components/schemas/GetApiRcsAgentsResponse",
+  "type": "object",
+  "properties": {
+    "agents": {
+      "type": "array",
+      "description": "Array containing all RCS agents available for your account."
+    },
+    "agents[].id": {
+      "type": "string",
+      "description": "The unique ID of the agent."
+    },
+    "agents[].display_name": {
+      "type": "string",
+      "description": "The display name of the agent visible to the recipient."
+    },
+    "agents[].status": {
+      "type": "string",
+      "description": "The current status of the agent. Possible values: pending, test, launched, approved."
+    },
+    "agents[].logo_url": {
+      "type": "string",
+      "description": "URL to the agent's logo."
+    },
+    "agents[].created": {
+      "type": "string",
+      "description": "Creation date of the agent in the format yyyy-mm-dd hh:ii:ss."
+    },
+    "agents[].is_generic": {
+      "type": "boolean",
+      "description": "Indicates whether this is a generic agent."
+    }
+  }
+}

@@ -1,0 +1,291 @@
+{
+  "@context": {
+    "@vocab": "https://seven.io/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "seven": "https://seven.io/schema#",
+    "GetApiLookupLookupidResponse": "seven:GetApiLookupLookupidResponse",
+    "success": {
+      "@id": "seven:success",
+      "@type": "xsd:boolean"
+    },
+    "national": {
+      "@id": "seven:national",
+      "@type": "xsd:string"
+    },
+    "international": {
+      "@id": "seven:international",
+      "@type": "xsd:string"
+    },
+    "international_formatted": {
+      "@id": "seven:international_formatted",
+      "@type": "xsd:string"
+    },
+    "country_name": {
+      "@id": "seven:country_name",
+      "@type": "xsd:string"
+    },
+    "country_code": {
+      "@id": "seven:country_code",
+      "@type": "xsd:string"
+    },
+    "country_iso": {
+      "@id": "seven:country_iso",
+      "@type": "xsd:string"
+    },
+    "carrier": {
+      "@id": "seven:carrier",
+      "@type": "xsd:string"
+    },
+    "network_type": {
+      "@id": "seven:network_type",
+      "@type": "xsd:string"
+    },
+    "DeleteApiNumbersActiveNumberResponse": "seven:DeleteApiNumbersActiveNumberResponse",
+    "PatchApiNumbersActiveNumberResponse": "seven:PatchApiNumbersActiveNumberResponse",
+    "country": {
+      "@id": "seven:country",
+      "@type": "xsd:string"
+    },
+    "number": {
+      "@id": "seven:number",
+      "@type": "xsd:string"
+    },
+    "friendly_name": {
+      "@id": "seven:friendly_name",
+      "@type": "xsd:string"
+    },
+    "billing": {
+      "@id": "seven:billing"
+    },
+    "features": {
+      "@id": "seven:features"
+    },
+    "forward_sms_mo": {
+      "@id": "seven:forward_sms_mo"
+    },
+    "expires": {
+      "@id": "seven:expires",
+      "@type": "xsd:string"
+    },
+    "created": {
+      "@id": "seven:created",
+      "@type": "xsd:string"
+    },
+    "GetApiNumbersNumberidResponse": "seven:GetApiNumbersNumberidResponse",
+    "activeNumbers": {
+      "@id": "seven:activeNumbers",
+      "@container": "@list"
+    },
+    "GetApiRcsAgentsResponse": "seven:GetApiRcsAgentsResponse",
+    "agents": {
+      "@id": "seven:agents",
+      "@container": "@list"
+    },
+    "PostApiRcsRcidResponse": "seven:PostApiRcsRcidResponse",
+    "PostApiVoiceCallidHangupResponse": "seven:PostApiVoiceCallidHangupResponse",
+    "error": {
+      "@id": "seven:error",
+      "@type": "xsd:string"
+    },
+    "DeleteApiWabaMessagesIdResponse": "seven:DeleteApiWabaMessagesIdResponse",
+    "GetApiWabaTemplatesResponse": "seven:GetApiWabaTemplatesResponse",
+    "templates": {
+      "@id": "seven:templates",
+      "@container": "@list"
+    },
+    "id": {
+      "@id": "seven:id",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id": "seven:name",
+      "@type": "xsd:string"
+    },
+    "language": {
+      "@id": "seven:language",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "seven:status",
+      "@type": "xsd:string"
+    },
+    "category": {
+      "@id": "seven:category",
+      "@type": "xsd:string"
+    },
+    "rejected_reason": {
+      "@id": "seven:rejected_reason",
+      "@type": "xsd:string"
+    },
+    "parameter_format": {
+      "@id": "seven:parameter_format",
+      "@type": "xsd:string"
+    },
+    "variables": {
+      "@id": "seven:variables"
+    },
+    "components": {
+      "@id": "seven:components",
+      "@container": "@list"
+    },
+    "DeleteApiApiidResponse": "seven:DeleteApiApiidResponse",
+    "code": {
+      "@id": "seven:code",
+      "@type": "xsd:string"
+    },
+    "error_message": {
+      "@id": "seven:error_message",
+      "@type": "xsd:string"
+    },
+    "GetApiApiidResponse": "seven:GetApiApiidResponse",
+    "countCountries": {
+      "@id": "seven:countCountries",
+      "@type": "xsd:integer"
+    },
+    "countNetworks": {
+      "@id": "seven:countNetworks",
+      "@type": "xsd:integer"
+    },
+    "countries": {
+      "@id": "seven:countries",
+      "@container": "@list"
+    },
+    "PatchApiApiidResponse": "seven:PatchApiApiidResponse",
+    "avatar": {
+      "@id": "seven:avatar",
+      "@type": "xsd:string"
+    },
+    "validation": {
+      "@id": "seven:validation"
+    },
+    "initials": {
+      "@id": "seven:initials"
+    },
+    "properties": {
+      "@id": "seven:properties"
+    },
+    "groups": {
+      "@id": "seven:groups",
+      "@container": "@list"
+    },
+    "PostApiApiidRequest": "seven:PostApiApiidRequest",
+    "firstname": {
+      "@id": "seven:firstname",
+      "@type": "xsd:string"
+    },
+    "lastname": {
+      "@id": "seven:lastname",
+      "@type": "xsd:string"
+    },
+    "mobile_number": {
+      "@id": "seven:mobile_number",
+      "@type": "xsd:string"
+    },
+    "PostApiApiidResponse": "seven:PostApiApiidResponse",
+    "total_price": {
+      "@id": "seven:total_price",
+      "@type": "xsd:decimal"
+    },
+    "balance": {
+      "@id": "seven:balance",
+      "@type": "xsd:decimal"
+    },
+    "debug": {
+      "@id": "seven:debug",
+      "@type": "xsd:boolean"
+    },
+    "messages": {
+      "@id": "seven:messages",
+      "@container": "@list"
+    },
+    "GetApiApiidIdResponse": "seven:GetApiApiidIdResponse",
+    "PatchApiApiidIdRequest": "seven:PatchApiApiidIdRequest",
+    "PatchApiApiidIdResponse": "seven:PatchApiApiidIdResponse",
+    "PostApiApiidEventsRequest": "seven:PostApiApiidEventsRequest",
+    "from": {
+      "@id": "seven:from",
+      "@type": "xsd:string"
+    },
+    "to": {
+      "@id": "seven:to",
+      "@type": "xsd:string"
+    },
+    "event": {
+      "@id": "seven:event",
+      "@type": "xsd:string"
+    },
+    "msg_id": {
+      "@id": "seven:msg_id",
+      "@type": "xsd:string"
+    },
+    "message_id": {
+      "@id": "seven:message_id",
+      "@type": "xsd:string"
+    },
+    "emoji": {
+      "@id": "seven:emoji",
+      "@type": "xsd:string"
+    },
+    "PostApiApiidEventsResponse": "seven:PostApiApiidEventsResponse",
+    "PostApiApiidMessagesRequest": "seven:PostApiApiidMessagesRequest",
+    "type": {
+      "@id": "seven:type",
+      "@type": "xsd:string"
+    },
+    "template": {
+      "@id": "seven:template",
+      "@type": "xsd:string"
+    },
+    "PostApiApiidMessagesResponse": "seven:PostApiApiidMessagesResponse",
+    "PostRevokeRequest": "seven:PostRevokeRequest",
+    "token": {
+      "@id": "seven:token",
+      "@type": "xsd:string"
+    },
+    "token_type_hint": {
+      "@id": "seven:token_type_hint",
+      "@type": "xsd:string"
+    },
+    "PostRevokeResponse": "seven:PostRevokeResponse",
+    "revoked": {
+      "@id": "seven:revoked",
+      "@type": "xsd:boolean"
+    },
+    "GetTokenResponse": "seven:GetTokenResponse",
+    "access_token": {
+      "@id": "seven:access_token",
+      "@type": "xsd:string"
+    },
+    "expires_in": {
+      "@id": "seven:expires_in",
+      "@type": "xsd:integer"
+    },
+    "token_type": {
+      "@id": "seven:token_type",
+      "@type": "xsd:string"
+    },
+    "scope": {
+      "@id": "seven:scope",
+      "@type": "xsd:string"
+    },
+    "refresh_token": {
+      "@id": "seven:refresh_token",
+      "@type": "xsd:string"
+    },
+    "PostTokenRequest": "seven:PostTokenRequest",
+    "grant_type": {
+      "@id": "seven:grant_type",
+      "@type": "xsd:string"
+    },
+    "PostTokenResponse": "seven:PostTokenResponse"
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "seven.io API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects seven.io's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-13) from openapi/_ae-authored/seven-io-openapi-generated.yml.",
+  "dcterms:created": "2026-10-13",
+  "dcterms:source": [
+    "openapi/_ae-authored/seven-io-openapi-generated.yml"
+  ]
+}

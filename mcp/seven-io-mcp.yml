@@ -1,0 +1,129 @@
+generated: '2026-10-13'
+method: derived
+generator: derive-mcp-candidate.py
+source:
+- openapi/_ae-authored/seven-io-openapi-generated.yml
+status: candidate
+deployment:
+  mode: none
+  auth: unknown
+  verified: probed
+note: No MCP server was found. The pre-flight posted tools/list to /mcp on api.seven.io, www.seven.io, app.seven.io, changelog.seven.io; verdict
+  absent. Candidate tools below are derived from the 23 operation(s) in the provider's own OpenAPI (23 listed); they describe what a server WOULD
+  expose, not one that exists.
+tools:
+- name: get_api_journal_journalid
+  operationId: get_api_journal_journalid
+  method: GET
+  path: /api/journal/{journalid}
+  description: GET /api/journal/inbound
+- name: get_api_lookup_lookupid
+  operationId: get_api_lookup_lookupid
+  method: GET
+  path: /api/lookup/{lookupid}
+  description: Query the caller ID name for any telephone number worldwide.
+- name: delete_api_numbers_active_number
+  operationId: delete_api_numbers_active_number
+  method: DELETE
+  path: /api/numbers/active/{number}
+  description: Delete a single active number by providing the phone number.
+- name: patch_api_numbers_active_number
+  operationId: patch_api_numbers_active_number
+  method: PATCH
+  path: /api/numbers/active/{number}
+  description: Update the details of a single active number by providing the phone number.
+- name: get_api_numbers_numberid
+  operationId: get_api_numbers_numberid
+  method: GET
+  path: /api/numbers/{numberid}
+  description: Get a list of all active numbers that are currently associated with your account.
+- name: post_api_numbers_numberid
+  operationId: post_api_numbers_numberid
+  method: POST
+  path: /api/numbers/{numberid}
+  description: POST /api/numbers/order
+- name: get_api_rcs_agents
+  operationId: get_api_rcs_agents
+  method: GET
+  path: /api/rcs/agents
+  description: This endpoint returns a list of all RCS agents available in your account, including generic (publicly usable) agents.
+- name: post_api_rcs_rcid
+  operationId: post_api_rcs_rcid
+  method: POST
+  path: /api/rcs/{rcid}
+  description: Send an event to a phone number to provide users with a more authentic conversational experience.
+- name: post_api_voice_call_id_hangup
+  operationId: post_api_voice_callId_hangup
+  method: POST
+  path: /api/voice/{callId}/hangup
+  description: This endpoint ends an active call.
+- name: delete_api_waba_messages_id
+  operationId: delete_api_waba_messages_id
+  method: DELETE
+  path: /api/waba/messages/{id}
+  description: Delete a scheduled WhatsApp message before it has been sent.
+- name: get_api_waba_templates
+  operationId: get_api_waba_templates
+  method: GET
+  path: /api/waba/templates
+  description: Returns the message templates of the WhatsApp Business Account behind a sender number.
+- name: delete_api_apiid
+  operationId: delete_api_apiid
+  method: DELETE
+  path: /api/{apiid}
+  description: Delete webhook by ID or by creation parameters.
+- name: get_api_apiid
+  operationId: get_api_apiid
+  method: GET
+  path: /api/{apiid}
+  description: Retrieve detailed statistics of your account directly via our API.
+- name: patch_api_apiid
+  operationId: patch_api_apiid
+  method: PATCH
+  path: /api/{apiid}
+  description: PATCH /api/contacts
+- name: post_api_apiid
+  operationId: post_api_apiid
+  method: POST
+  path: /api/{apiid}
+  description: Create contact
+- name: delete_api_apiid_id
+  operationId: delete_api_apiid_id
+  method: DELETE
+  path: /api/{apiid}/{id}
+  description: Delete contact
+- name: get_api_apiid_id
+  operationId: get_api_apiid_id
+  method: GET
+  path: /api/{apiid}/{id}
+  description: Retrieve contact
+- name: patch_api_apiid_id
+  operationId: patch_api_apiid_id
+  method: PATCH
+  path: /api/{apiid}/{id}
+  description: Update contact
+- name: post_api_apiid_events
+  operationId: post_api_apiid_events
+  method: POST
+  path: /api/{apiid}/events
+  description: Send conversation events such as read receipts, typing indicators, or reactions to a WhatsApp contact.
+- name: post_api_apiid_messages
+  operationId: post_api_apiid_messages
+  method: POST
+  path: /api/{apiid}/messages
+  description: POST /api/rcs/messages
+- name: post_revoke
+  operationId: post_revoke
+  method: POST
+  path: /revoke
+  description: Revoke token.
+- name: get_token
+  operationId: get_token
+  method: GET
+  path: /token
+  description: GET /token
+- name: post_token
+  operationId: post_token
+  method: POST
+  path: /token
+  description: Retrieve access token or update access token using refresh token.

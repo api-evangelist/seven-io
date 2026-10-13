@@ -1,0 +1,143 @@
+generated: '2026-10-13'
+method: derived
+generator: derive-vocabulary.py
+source: openapi/_ae-authored/seven-io-openapi-generated.yml
+vocabulary:
+  name: seven.io Domain Vocabulary
+  description: 'Terms declared by seven.io''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-10-13'
+  terms:
+  - term: GetApiLookupLookupidResponse
+    definition: 'Object declared by the contract with fields: success, national, international, international_formatted, country_name, country_code,
+      country_iso, carrier, network_type.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/seven-io-openapi-generated.yml#/components/schemas/GetApiLookupLookupidResponse
+  - term: DeleteApiNumbersActiveNumberResponse
+    definition: 'Object declared by the contract with fields: success.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/seven-io-openapi-generated.yml#/components/schemas/DeleteApiNumbersActiveNumberResponse
+  - term: PatchApiNumbersActiveNumberResponse
+    definition: 'Object declared by the contract with fields: country, number, friendly_name, billing, features, forward_sms_mo, expires, created.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/seven-io-openapi-generated.yml#/components/schemas/PatchApiNumbersActiveNumberResponse
+  - term: GetApiNumbersNumberidResponse
+    definition: 'Object declared by the contract with fields: activeNumbers.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/seven-io-openapi-generated.yml#/components/schemas/GetApiNumbersNumberidResponse
+  - term: GetApiRcsAgentsResponse
+    definition: 'Object declared by the contract with fields: agents, agents[].id, agents[].display_name, agents[].status, agents[].logo_url,
+      agents[].created, agents[].is_generic.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/seven-io-openapi-generated.yml#/components/schemas/GetApiRcsAgentsResponse
+  - term: PostApiRcsRcidResponse
+    definition: 'Object declared by the contract with fields: success.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/seven-io-openapi-generated.yml#/components/schemas/PostApiRcsRcidResponse
+  - term: PostApiVoiceCallidHangupResponse
+    definition: 'Object declared by the contract with fields: success, error.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/seven-io-openapi-generated.yml#/components/schemas/PostApiVoiceCallidHangupResponse
+  - term: DeleteApiWabaMessagesIdResponse
+    definition: 'Object declared by the contract with fields: success.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/seven-io-openapi-generated.yml#/components/schemas/DeleteApiWabaMessagesIdResponse
+  - term: GetApiWabaTemplatesResponse
+    definition: 'Object declared by the contract with fields: templates, id, name, language, status, category, rejected_reason, parameter_format,
+      variables, components.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/seven-io-openapi-generated.yml#/components/schemas/GetApiWabaTemplatesResponse
+  - term: DeleteApiApiidResponse
+    definition: 'Object declared by the contract with fields: success, code, id, error_message.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/seven-io-openapi-generated.yml#/components/schemas/DeleteApiApiidResponse
+  - term: GetApiApiidResponse
+    definition: 'Object declared by the contract with fields: countCountries, countNetworks, countries.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/seven-io-openapi-generated.yml#/components/schemas/GetApiApiidResponse
+  - term: PatchApiApiidResponse
+    definition: 'Object declared by the contract with fields: id, avatar, validation, initials, properties, groups, created.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/seven-io-openapi-generated.yml#/components/schemas/PatchApiApiidResponse
+  - term: PostApiApiidRequest
+    definition: 'Object declared by the contract with fields: firstname, lastname, mobile_number, avatar.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/seven-io-openapi-generated.yml#/components/schemas/PostApiApiidRequest
+  - term: PostApiApiidResponse
+    definition: 'Object declared by the contract with fields: success, total_price, balance, debug, messages.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/seven-io-openapi-generated.yml#/components/schemas/PostApiApiidResponse
+  - term: GetApiApiidIdResponse
+    definition: 'Object declared by the contract with fields: id, avatar, validation, initials, properties, groups, created.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/seven-io-openapi-generated.yml#/components/schemas/GetApiApiidIdResponse
+  - term: PatchApiApiidIdRequest
+    definition: 'Object declared by the contract with fields: firstname, lastname.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/seven-io-openapi-generated.yml#/components/schemas/PatchApiApiidIdRequest
+  - term: PatchApiApiidIdResponse
+    definition: 'Object declared by the contract with fields: id, avatar, validation, initials, properties, groups, created.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/seven-io-openapi-generated.yml#/components/schemas/PatchApiApiidIdResponse
+  - term: PostApiApiidEventsRequest
+    definition: 'Object declared by the contract with fields: from, to, event, msg_id, message_id, emoji.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/seven-io-openapi-generated.yml#/components/schemas/PostApiApiidEventsRequest
+  - term: PostApiApiidEventsResponse
+    definition: 'Object declared by the contract with fields: success.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/seven-io-openapi-generated.yml#/components/schemas/PostApiApiidEventsResponse
+  - term: PostApiApiidMessagesRequest
+    definition: 'Object declared by the contract with fields: from, to, type, template, language.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/seven-io-openapi-generated.yml#/components/schemas/PostApiApiidMessagesRequest
+  - term: PostApiApiidMessagesResponse
+    definition: 'Object declared by the contract with fields: success.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/seven-io-openapi-generated.yml#/components/schemas/PostApiApiidMessagesResponse
+  - term: PostRevokeRequest
+    definition: 'Object declared by the contract with fields: token, token_type_hint.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/seven-io-openapi-generated.yml#/components/schemas/PostRevokeRequest
+  - term: PostRevokeResponse
+    definition: 'Object declared by the contract with fields: revoked.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/seven-io-openapi-generated.yml#/components/schemas/PostRevokeResponse
+  - term: GetTokenResponse
+    definition: 'Object declared by the contract with fields: access_token, expires_in, token_type, scope, refresh_token.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/seven-io-openapi-generated.yml#/components/schemas/GetTokenResponse
+  - term: PostTokenRequest
+    definition: 'Object declared by the contract with fields: grant_type, code, refresh_token.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/seven-io-openapi-generated.yml#/components/schemas/PostTokenRequest
+  - term: PostTokenResponse
+    definition: 'Object declared by the contract with fields: access_token, expires_in, token_type, scope, refresh_token.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/seven-io-openapi-generated.yml#/components/schemas/PostTokenResponse

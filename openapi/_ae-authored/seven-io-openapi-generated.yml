@@ -1,0 +1,1185 @@
+openapi: 3.1.0
+info:
+  title: seven.io API
+  version: '2026-10-13'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-13: 23 operation(s) read from 26 public documentation page(s) (each
+    operation names its page in x-source). This is not the provider''s published contract; seven.io has published no machine-readable contract
+    that the pipeline could find. Engine: anthropic.'
+  x-evidence-tiers:
+    code-example: 24
+    documentation: -1
+    pages-with-code: 25
+    pages-read: 26
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-13'
+  x-generator: generate-contract-from-docs.py
+  x-engine: anthropic
+  x-sources:
+  - https://docs.seven.io/en/rest-api/endpoints/rcs
+  - https://docs.seven.io/en/rest-api/endpoints/sms
+  - https://docs.seven.io/en/rest-api/endpoints/voice
+  - https://docs.seven.io/en/rest-api/endpoints/groups
+  - https://docs.seven.io/en/rest-api/endpoints/lookup
+  - https://docs.seven.io/en/rest-api/endpoints/account
+  - https://docs.seven.io/en/rest-api/endpoints/logbook
+  - https://docs.seven.io/en/rest-api/endpoints/numbers
+  - https://docs.seven.io/en/rest-api/endpoints/contacts
+  - https://docs.seven.io/en/rest-api/endpoints/webhooks
+  - https://docs.seven.io/en/rest-api/endpoints/whatsapp
+  - https://docs.seven.io/en/rest-api/endpoints/subaccounts
+  - https://docs.seven.io/en/rest-api/endpoints/status-reports
+  - https://docs.seven.io/en/rest-api/endpoints/sender-identifiers
+  - https://www.seven.io/en/docs/gateway/http-api/mnp-lookup
+  - https://docs.seven.io/en/rest-api/signing
+  - https://docs.seven.io/en/rest-api/oauth2.0
+  - https://docs.seven.io/en/rest-api/first-steps
+  - https://docs.seven.io/en/rest-api/authentication
+  - https://www.seven.io/en/developer
+  - https://help.seven.io/en/developer/deactivation-of-unused-api-keys
+  - https://help.seven.io/de/entwickler/deaktivierung-ungenutzer-api-keys
+  - https://help.seven.io/fr/developpeur/desactivation-des-cles-api-inutilisees
+  - https://help.seven.io/es/desarrollador/desactivacion-de-api-keys-no-utilizadas
+  - https://help.seven.io/pt/desenvolvedor/desativacao-de-chaves-de-api-nao-utilizadas
+  - https://www.seven.io/en/products/number-validation/mnp-lookup
+servers:
+- url: https://gateway.seven.io
+paths:
+  /api/journal/{journalid}:
+    get:
+      operationId: get_api_journal_journalid
+      tags:
+      - Api
+      summary: GET /api/journal/inbound
+      x-source: https://docs.seven.io/en/rest-api/endpoints/logbook
+      parameters:
+      - name: journalid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -G \"https://gateway.seven.io/api/journal/inbound\"  -H \"X-Api-Key: YOUR_API_KEY \" \n Copy Copied! \n Answer [ \n { \n\
+          \ \"id\" : \"4603396\" , \n \"from\" : \"49176123456789\" , \n \"to\" : \"49151123456789\" , \n \"text\" : \"Awesome! Your message was\
+          \ received.\" , \n \"timestamp\" : \"2025-01-16 12:53:17\" , \n \"reply_to_message_id\" : \"77258554687\" , \n \"price\" : null \n }\
+          \ , \n { \n \"id\" : \"1865514\" , \n \"from\" : \"491761234567"
+        collapsed_from: 3 example path(s) differing only at journalId
+  /api/lookup/{lookupid}:
+    get:
+      operationId: get_api_lookup_lookupid
+      tags:
+      - Api
+      summary: Query the caller ID name for any telephone number worldwide.
+      x-source: https://docs.seven.io/en/rest-api/endpoints/lookup
+      parameters:
+      - name: lookupid
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: number
+        in: query
+        required: true
+        schema:
+          type: string
+        description: The number to be queried.
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetApiLookupLookupidResponse'
+      x-evidence:
+        kind: documentation
+        collapsed_from: 5 example path(s) differing only at lookupId
+  /api/numbers/active/{number}:
+    delete:
+      operationId: delete_api_numbers_active_number
+      tags:
+      - Api
+      summary: Delete a single active number by providing the phone number.
+      x-source: https://docs.seven.io/en/rest-api/endpoints/numbers
+      parameters:
+      - name: number
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: delete_immediately
+        in: query
+        required: false
+        schema:
+          type: boolean
+        description: If set to true, the number will be deleted immediately. If set to false, the number will be deleted at the end of the current
+          billing period.
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteApiNumbersActiveNumberResponse'
+      x-evidence:
+        kind: documentation
+    patch:
+      operationId: patch_api_numbers_active_number
+      tags:
+      - Api
+      summary: Update the details of a single active number by providing the phone number.
+      x-source: https://docs.seven.io/en/rest-api/endpoints/numbers
+      parameters:
+      - name: number
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: friendly_name
+        in: query
+        required: false
+        schema:
+          type: string
+        description: The updated friendly name for the number.
+      - name: sms_forward
+        in: query
+        required: false
+        schema:
+          type: array
+        description: The phone number to forward incoming SMS to. If empty, incoming SMS won't be forwarded by SMS.
+      - name: email_forward
+        in: query
+        required: false
+        schema:
+          type: array
+        description: The email address to forward incoming SMS to. If empty, incoming SMS won't be forwarded by email.
+      - name: slack_forward
+        in: query
+        required: false
+        schema:
+          type: string
+        description: The Slack webhook URL to forward incoming SMS to. If empty, incoming SMS won't be forwarded by Slack.
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatchApiNumbersActiveNumberResponse'
+      x-evidence:
+        kind: documentation
+  /api/numbers/{numberid}:
+    get:
+      operationId: get_api_numbers_numberid
+      tags:
+      - Api
+      summary: Get a list of all active numbers that are currently associated with your account.
+      x-source: https://docs.seven.io/en/rest-api/endpoints/numbers
+      parameters:
+      - name: numberid
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: country
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetApiNumbersNumberidResponse'
+      x-evidence:
+        kind: documentation
+        collapsed_from: 2 example path(s) differing only at numberId
+    post:
+      operationId: post_api_numbers_numberid
+      tags:
+      - Api
+      summary: POST /api/numbers/order
+      x-source: https://docs.seven.io/en/rest-api/endpoints/numbers
+      parameters:
+      - name: numberid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -X POST \"https://gateway.seven.io/api/numbers/order\"  -H \"x-api-key: YOUR_API_KEY \"  -d 'number=4523854818' \n Copy\
+          \ Copied! { \n \"success\" : true , \n \"error\" : null , \n } \n Copy Copied! \n GET /api/numbers/active Active numbers \n Get a list\
+          \ of all active numbers that are currently associated with your account. \n GET /api/numbers/active curl -X GET \"https://gateway.seven.io/api/numbers/active\"\
+          \  -"
+        collapsed_from: 2 example path(s) differing only at numberId
+  /api/rcs/agents:
+    get:
+      operationId: get_api_rcs_agents
+      tags:
+      - Api
+      summary: This endpoint returns a list of all RCS agents available in your account, including generic (publicly usable) agents.
+      x-source: https://docs.seven.io/en/rest-api/endpoints/rcs
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetApiRcsAgentsResponse'
+      x-evidence:
+        kind: documentation
+  /api/rcs/{rcid}:
+    post:
+      operationId: post_api_rcs_rcid
+      tags:
+      - Api
+      summary: Send an event to a phone number to provide users with a more authentic conversational experience.
+      x-source: https://docs.seven.io/en/rest-api/endpoints/rcs
+      parameters:
+      - name: rcid
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: to
+        in: query
+        required: true
+        schema:
+          type: string
+        description: The phone number to which you want to send the event.
+      - name: event
+        in: query
+        required: true
+        schema:
+          type: string
+        description: 'The event to be sent. Can have one of the following values: IS_TYPING or READ.'
+      - name: msg_id
+        in: query
+        required: false
+        schema:
+          type: string
+        description: The ID of the received RCS to which you want to send the event.
+      - name: from
+        in: query
+        required: false
+        schema:
+          type: string
+        description: The agent ID.
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostApiRcsRcidResponse'
+      x-evidence:
+        kind: documentation
+        collapsed_from: 2 example path(s) differing only at rcId
+  /api/voice/{callId}/hangup:
+    post:
+      operationId: post_api_voice_callId_hangup
+      tags:
+      - Api
+      summary: This endpoint ends an active call.
+      x-source: https://docs.seven.io/en/rest-api/endpoints/voice
+      parameters:
+      - name: callId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostApiVoiceCallidHangupResponse'
+      x-evidence:
+        kind: documentation
+  /api/waba/messages/{id}:
+    delete:
+      operationId: delete_api_waba_messages_id
+      tags:
+      - Api
+      summary: Delete a scheduled WhatsApp message before it has been sent.
+      x-source: https://docs.seven.io/en/rest-api/endpoints/whatsapp
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteApiWabaMessagesIdResponse'
+      x-evidence:
+        kind: documentation
+  /api/waba/templates:
+    get:
+      operationId: get_api_waba_templates
+      tags:
+      - Api
+      summary: Returns the message templates of the WhatsApp Business Account behind a sender number.
+      x-source: https://docs.seven.io/en/rest-api/endpoints/whatsapp
+      parameters:
+      - name: from
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Your registered WhatsApp Business sender number.
+      - name: name
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Only return templates with this exact name.
+      - name: status
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Only return templates with this status, e.g. APPROVED, PENDING, REJECTED, PAUSED.
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetApiWabaTemplatesResponse'
+      x-evidence:
+        kind: documentation
+  /api/{apiid}:
+    delete:
+      operationId: delete_api_apiid
+      tags:
+      - Api
+      summary: Delete webhook by ID or by creation parameters.
+      x-source: https://docs.seven.io/en/rest-api/endpoints/webhooks
+      parameters:
+      - name: apiid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteApiApiidResponse'
+      x-evidence:
+        kind: documentation
+        collapsed_from: 2 example path(s) differing only at apiId
+    get:
+      operationId: get_api_apiid
+      tags:
+      - Api
+      summary: Retrieve detailed statistics of your account directly via our API.
+      x-source: https://docs.seven.io/en/rest-api/endpoints/account
+      parameters:
+      - name: apiid
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: start
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Start date of the statistics in the format YYYY-MM-DD. The date from 30 days ago is set by default.
+      - name: end
+        in: query
+        required: false
+        schema:
+          type: string
+        description: End date of the statistics. The current day by default.
+      - name: label
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Only shows data for a specific label.
+      - name: subaccounts
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Receive data only for the main account, for all your (sub)accounts or only for specific subaccounts.
+      - name: group_by
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Defines the grouping of the data. The default value is date.
+      - name: p
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetApiApiidResponse'
+      x-evidence:
+        kind: documentation
+        collapsed_from: 11 example path(s) differing only at apiId
+    patch:
+      operationId: patch_api_apiid
+      tags:
+      - Api
+      summary: PATCH /api/contacts
+      x-source: https://docs.seven.io/en/rest-api/endpoints/contacts
+      parameters:
+      - name: apiid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatchApiApiidResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl POST /api/contacts curl https://gateway.seven.io/api/contacts  -H \"X-Api key: YOUR_API_KEY \"  -d \"firstname=Frank\"\
+          \  -d \"lastname=McAllister\"  -d \"mobile_number=1-800-759-3000\"  -d \"avatar=https://picsum.photos/200\" \n Copy Copied! Response\
+          \ { \n \"id\" : 12876882 , \n \"avatar\" : \"https://static.seven.io/uploads/contact_images/4A000c0d4e9431F483090dE8D13F3806.jpg\" ,\
+          \ \n \"validation\" : { \n \"state\" : nu"
+        collapsed_from: 2 example path(s) differing only at apiId
+    post:
+      operationId: post_api_apiid
+      tags:
+      - Api
+      summary: Create contact
+      x-source: https://docs.seven.io/en/rest-api/endpoints/contacts
+      parameters:
+      - name: apiid
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostApiApiidRequest'
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostApiApiidResponse'
+      x-evidence:
+        kind: documentation
+        collapsed_from: 7 example path(s) differing only at apiId
+  /api/{apiid}/{id}:
+    delete:
+      operationId: delete_api_apiid_id
+      tags:
+      - Api
+      summary: Delete contact
+      x-source: https://docs.seven.io/en/rest-api/endpoints/contacts
+      parameters:
+      - name: apiid
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+        collapsed_from: 2 example path(s) differing only at apiId
+    get:
+      operationId: get_api_apiid_id
+      tags:
+      - Api
+      summary: Retrieve contact
+      x-source: https://docs.seven.io/en/rest-api/endpoints/contacts
+      parameters:
+      - name: apiid
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetApiApiidIdResponse'
+      x-evidence:
+        kind: documentation
+        collapsed_from: 2 example path(s) differing only at apiId
+    patch:
+      operationId: patch_api_apiid_id
+      tags:
+      - Api
+      summary: Update contact
+      x-source: https://docs.seven.io/en/rest-api/endpoints/contacts
+      parameters:
+      - name: apiid
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchApiApiidIdRequest'
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatchApiApiidIdResponse'
+      x-evidence:
+        kind: documentation
+        collapsed_from: 2 example path(s) differing only at apiId
+  /api/{apiid}/events:
+    post:
+      operationId: post_api_apiid_events
+      tags:
+      - Api
+      summary: Send conversation events such as read receipts, typing indicators, or reactions to a WhatsApp contact.
+      x-source: https://docs.seven.io/en/rest-api/endpoints/whatsapp
+      parameters:
+      - name: apiid
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostApiApiidEventsRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostApiApiidEventsResponse'
+      x-evidence:
+        kind: documentation
+        collapsed_from: 2 example path(s) differing only at apiId
+  /api/{apiid}/messages:
+    post:
+      operationId: post_api_apiid_messages
+      tags:
+      - Api
+      summary: POST /api/rcs/messages
+      x-source: https://docs.seven.io/en/rest-api/endpoints/rcs
+      parameters:
+      - name: apiid
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostApiApiidMessagesRequest'
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostApiApiidMessagesResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -X POST \"https://gateway.seven.io/api/rcs/messages\"  -H \"X-Api-Key: YOUR_API_KEY \"  -d \"text=Hello World!\"  -d \"\
+          to=49176123456789\" \n Copy Copied! Simple text message Message with rich content { \n \"success\" : \"100\" , \n \"total_price\" :\
+          \ null , \n \"balance\" : 3218.988 , \n \"debug\" : \"false\" , \n \"sms_type\" : \"direct\" , \n \"messages\" : [ \n { \n \"id\" :\
+          \ \"77233319353\" , \n \"sender\" : \"myfancyagent\" , \n \"re"
+        collapsed_from: 2 example path(s) differing only at apiId
+  /revoke:
+    post:
+      operationId: post_revoke
+      tags:
+      - Revoke
+      summary: Revoke token.
+      x-source: https://docs.seven.io/en/rest-api/oauth2.0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostRevokeRequest'
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostRevokeResponse'
+      x-evidence:
+        kind: documentation
+  /token:
+    get:
+      operationId: get_token
+      tags:
+      - Token
+      summary: GET /token
+      x-source: https://docs.seven.io/en/rest-api/oauth2.0
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetTokenResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -u testclient:testsecret https://oauth.seven.io/token  -d 'grant_type=authorization_code&code=9ccb478a7cbe043c1df211f1d52a6437f8756cf8'\
+          \ \n Copy Copied! \n If successful, you will receive data in JSON format as follows: \n Response { \n \"access_token\" : \"b1a9391d0469cafe30258893ab6025d4ad94ecec\"\
+          \ , \n \"expires_in\" : 3600 , \n \"token_type\" : \"Bearer\" , \n \"scope\" : \"sms\" , \n \"refresh_token\" : \"ffd8e622"
+    post:
+      operationId: post_token
+      tags:
+      - Token
+      summary: Retrieve access token or update access token using refresh token.
+      x-source: https://docs.seven.io/en/rest-api/oauth2.0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostTokenRequest'
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostTokenResponse'
+      x-evidence:
+        kind: documentation
+components:
+  schemas:
+    GetApiLookupLookupidResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        national:
+          type: string
+        international:
+          type: string
+        international_formatted:
+          type: string
+        country_name:
+          type: string
+        country_code:
+          type: string
+        country_iso:
+          type: string
+        carrier:
+          type: string
+        network_type:
+          type: string
+    DeleteApiNumbersActiveNumberResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+    PatchApiNumbersActiveNumberResponse:
+      type: object
+      properties:
+        country:
+          type: string
+        number:
+          type: string
+        friendly_name:
+          type: string
+        billing:
+          type: object
+        features:
+          type: object
+        forward_sms_mo:
+          type: object
+        expires:
+          type: string
+        created:
+          type: string
+    GetApiNumbersNumberidResponse:
+      type: object
+      properties:
+        activeNumbers:
+          type: array
+    GetApiRcsAgentsResponse:
+      type: object
+      properties:
+        agents:
+          type: array
+          description: Array containing all RCS agents available for your account.
+        agents[].id:
+          type: string
+          description: The unique ID of the agent.
+        agents[].display_name:
+          type: string
+          description: The display name of the agent visible to the recipient.
+        agents[].status:
+          type: string
+          description: 'The current status of the agent. Possible values: pending, test, launched, approved.'
+        agents[].logo_url:
+          type: string
+          description: URL to the agent's logo.
+        agents[].created:
+          type: string
+          description: Creation date of the agent in the format yyyy-mm-dd hh:ii:ss.
+        agents[].is_generic:
+          type: boolean
+          description: Indicates whether this is a generic agent.
+    PostApiRcsRcidResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+    PostApiVoiceCallidHangupResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        error:
+          type: string
+    DeleteApiWabaMessagesIdResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+          description: Whether the message was successfully deleted.
+    GetApiWabaTemplatesResponse:
+      type: object
+      properties:
+        templates:
+          type: array
+          description: Array of template objects.
+        id:
+          type: string
+          description: Template ID.
+        name:
+          type: string
+          description: Template name.
+        language:
+          type: string
+          description: Template language.
+        status:
+          type: string
+          description: Approval status as reported by WhatsApp.
+        category:
+          type: string
+          description: Template category.
+        rejected_reason:
+          type: string
+          description: Reason given by WhatsApp for a rejection.
+        parameter_format:
+          type: string
+          description: POSITIONAL or NAMED parameter format.
+        variables:
+          type: object
+          description: Placeholders to fill when sending.
+        components:
+          type: array
+          description: Template definition as returned by WhatsApp.
+    DeleteApiApiidResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        code:
+          type: string
+        id:
+          type: integer
+        error_message:
+          type: string
+    GetApiApiidResponse:
+      type: object
+      properties:
+        countCountries:
+          type: integer
+        countNetworks:
+          type: integer
+        countries:
+          type: array
+          items:
+            type: object
+            properties:
+              countryCode:
+                type: string
+              countryName:
+                type: string
+              countryPrefix:
+                type: string
+              networks:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    mcc:
+                      type: string
+                    mncs:
+                      type: array
+                      items:
+                        type: string
+                    networkName:
+                      type: string
+                    price:
+                      type: number
+                    features:
+                      type: array
+                      items: {}
+                    comment:
+                      type: string
+    PatchApiApiidResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        avatar:
+          type: string
+        validation:
+          type: object
+          properties:
+            state:
+              type:
+              - string
+              - 'null'
+            timestamp:
+              type:
+              - string
+              - 'null'
+        initials:
+          type: object
+          properties:
+            initials:
+              type: string
+            color:
+              type: string
+        properties:
+          type: object
+          properties:
+            firstname:
+              type: string
+            lastname:
+              type: string
+            mobile_number:
+              type: string
+            home_number:
+              type:
+              - string
+              - 'null'
+            email:
+              type:
+              - string
+              - 'null'
+            address:
+              type:
+              - string
+              - 'null'
+            postal_code:
+              type:
+              - string
+              - 'null'
+            city:
+              type:
+              - string
+              - 'null'
+            birthday:
+              type:
+              - string
+              - 'null'
+            notes:
+              type:
+              - string
+              - 'null'
+        groups:
+          type: array
+          items: {}
+        created:
+          type: string
+          format: date-time
+    PostApiApiidRequest:
+      type: object
+      properties:
+        firstname:
+          type: string
+          description: First name of the contact
+        lastname:
+          type: string
+          description: Last name of the contact
+        mobile_number:
+          type: string
+          description: Mobile phone number of the contact
+        avatar:
+          type: string
+          description: The avatar URL of the contact
+    PostApiApiidResponse:
+      type: object
+      properties:
+        success:
+          type: string
+        total_price:
+          type: number
+        balance:
+          type: number
+        debug:
+          type: boolean
+        messages:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              sender:
+                type: string
+              recipient:
+                type: string
+              text:
+                type: string
+              price:
+                type: number
+              success:
+                type: boolean
+              error:
+                type:
+                - string
+                - 'null'
+              error_text:
+                type:
+                - string
+                - 'null'
+    GetApiApiidIdResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique ID of the contact
+        avatar:
+          type: string
+          description: The avatar URL of the contact
+        validation:
+          type: object
+          description: Validation state and timestamp
+        initials:
+          type: object
+          description: Contact initials and color
+        properties:
+          type: object
+          description: Contact properties
+        groups:
+          type: array
+          description: Array of group IDs the contact belongs to
+        created:
+          type: string
+          description: Time at which the contact was created
+    PatchApiApiidIdRequest:
+      type: object
+      properties:
+        firstname:
+          type: string
+          description: First name of the contact
+        lastname:
+          type: string
+          description: Last name of the contact
+    PatchApiApiidIdResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique ID of the contact
+        avatar:
+          type: string
+          description: The avatar URL of the contact
+        validation:
+          type: object
+          description: Validation state and timestamp
+        initials:
+          type: object
+          description: Contact initials and color
+        properties:
+          type: object
+          description: Contact properties
+        groups:
+          type: array
+          description: Array of group IDs the contact belongs to
+        created:
+          type: string
+          description: Time at which the contact was created
+    PostApiApiidEventsRequest:
+      type: object
+      properties:
+        from:
+          type: string
+          description: Your registered WhatsApp Business sender number.
+        to:
+          type: string
+          description: Recipient phone number in international format.
+        event:
+          type: string
+          description: 'The event type: read, is_typing, or reaction.'
+        msg_id:
+          type: string
+          description: Explicit message ID to mark as read.
+        message_id:
+          type: string
+          description: The WhatsApp message ID of the message to react to.
+        emoji:
+          type: string
+          description: The emoji to use as reaction.
+      required:
+      - event
+    PostApiApiidEventsResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+          description: Whether the event was successfully sent.
+    PostApiApiidMessagesRequest:
+      type: object
+      properties:
+        from:
+          type: string
+        to:
+          type: string
+        type:
+          type: string
+        template:
+          type: string
+        language:
+          type: string
+    PostApiApiidMessagesResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+    PostRevokeRequest:
+      type: object
+      properties:
+        token:
+          type: string
+          description: The access token or refresh token to be revoked
+        token_type_hint:
+          type: string
+          description: 'A hint about the type of the token: access_token or refresh_token'
+      required:
+      - token
+    PostRevokeResponse:
+      type: object
+      properties:
+        revoked:
+          type: boolean
+          description: Whether the token was successfully revoked
+    GetTokenResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+        expires_in:
+          type: integer
+        token_type:
+          type: string
+        scope:
+          type: string
+        refresh_token:
+          type: string
+    PostTokenRequest:
+      type: object
+      properties:
+        grant_type:
+          type: string
+          description: Either 'authorization_code' or 'refresh_token'
+        code:
+          type: string
+          description: The authorization code from step 3 (required when grant_type is authorization_code)
+        refresh_token:
+          type: string
+          description: The refresh token (required when grant_type is refresh_token)
+      required:
+      - grant_type
+    PostTokenResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+          description: The access token to use for API calls
+        expires_in:
+          type: integer
+          description: Token lifetime in seconds
+        token_type:
+          type: string
+          description: Type of token (Bearer)
+        scope:
+          type: string
+          description: The granted scopes
+        refresh_token:
+          type: string
+          description: The refresh token for obtaining new access tokens
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-Api-Key
+security:
+- apiKey: []
+tags:
+- name: Api
+- name: Revoke
+- name: Token
