@@ -13,7 +13,7 @@ x-type: company
 
 x-source: harvest:market-gap
 
-x-tier: stub
+x-tier: profiled
 
 x-tier-reason: harvest
 
@@ -112,3 +112,7 @@ apis:
     url: json-schema/seven-io-get-api-apiid-response-schema.json
   - type: JSONSchema
     url: json-schema/seven-io-get-api-apiid-id-response-schema.json
+x-enrichment:
+  status: enriched
+  pass: local-v5
+  date: '2026-10-13'

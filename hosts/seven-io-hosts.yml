@@ -3,16 +3,17 @@ method: derived
 source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
 generator: derive-hosts.py
 summary:
-  hosts: 11
+  hosts: 12
   own: 11
   other_domain: 0
-  platform: 0
+  platform: 1
   roles:
   - api
   - docs
+  - identity
   - other
+  - source
   - status
-  - support
   - website
 hosts:
 - host: api.seven.io
@@ -25,14 +26,16 @@ hosts:
   relation: own
 - host: app.seven.io
   found_by:
+  - pointer
   - probed
   - site-links
   - contract-discovery
   - well-known
-  types: []
+  types:
+  - Login
   serves: []
   registrable_domain: seven.io
-  role: other
+  role: identity
   relation: own
 - host: changelog.seven.io
   found_by:
@@ -98,17 +101,29 @@ hosts:
   registrable_domain: seven.io
   role: other
   relation: own
+- host: github.com
+  found_by:
+  - pointer
+  types:
+  - GitHubOrganization
+  serves: []
+  registrable_domain: github.com
+  role: source
+  relation: platform
 - host: help.seven.io
   found_by:
+  - pointer
   - probed
   - site-links
   - docs-index
   - well-known
-  types: []
+  types:
+  - Support
+  - GettingStarted
   serves:
   - docs
   registrable_domain: seven.io
-  role: support
+  role: docs
   relation: own
 - host: meetings.seven.io
   found_by:
@@ -139,6 +154,11 @@ hosts:
   - contract-discovery
   - well-known
   types:
+  - TermsOfService
+  - PrivacyPolicy
+  - Pricing
+  - Newsroom
+  - DeveloperPortal
   - Website
   - Blog
   - ChangeLog

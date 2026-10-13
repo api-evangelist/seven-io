@@ -25,6 +25,10 @@ reliance:
     cannot tell those apart
 checked:
 - 'docs-platform: no-docs-host'
+- help.seven.io (Support)
+- app.seven.io (Login)
+- www.seven.io (DeveloperPortal)
+- help.seven.io (GettingStarted)
 - www.seven.io (Website)
 - docs.seven.io (Documentation)
 - status.seven.io (StatusPage)
