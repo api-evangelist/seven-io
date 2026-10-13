@@ -381,6 +381,22 @@ edges:
   direction: third-party
   category: App Builder
   partner_url: https://www.goodbarber.com/?utm_source=zapier.com&utm_medium=referral&utm_campaign=goodbarber_integration
+- partner_name: novu
+  partner: novu
+  partner_match: domain
+  type: contract
+  channel: contract-enum
+  relationship: delivery-provider
+  direction: partner-built
+  evidence: https://github.com/api-evangelist/novu/blob/main/openapi/novu-channel-connections-api-openapi.yml
+  contract_reference:
+    repo: novu
+    spec_file: novu-channel-connections-api-openapi.yml
+    value: sms77
+    property: schemas.GetChannelConnectionResponseDto.providerId
+    matched_domain: seven.io
+    detected_by: sweep-cpaas.py
+    detected: '2026-10-13'
 templates:
 - title: Send sms in seven for new Jotform submissions
   url: https://zapier.com/apps/jotform/integrations/seven/255599096/send-sms-in-seven-for-new-jotform-submissions

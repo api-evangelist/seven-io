@@ -350,3 +350,22 @@
   source: edge
   status: pending-partner-spec
   arazzo: null
+- slug: seven-io-novu
+  label: novu
+  partner: novu
+  partner_name: novu
+  type: contract
+  channel: contract-enum
+  evidence: https://github.com/api-evangelist/novu/blob/main/openapi/novu-channel-connections-api-openapi.yml
+  source: edge
+  relationship: delivery-provider
+  contract_reference:
+    repo: novu
+    spec_file: novu-channel-connections-api-openapi.yml
+    value: sms77
+    property: schemas.GetChannelConnectionResponseDto.providerId
+    matched_domain: seven.io
+    detected_by: sweep-cpaas.py
+    detected: '2026-10-13'
+  status: not-a-workflow
+  arazzo: null
