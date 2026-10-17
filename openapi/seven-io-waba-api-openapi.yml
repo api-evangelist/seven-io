@@ -1,0 +1,153 @@
+openapi: 3.2.0
+info:
+  title: seven.io Waba API
+  version: '2026-10-13'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-13: 23 operation(s) read from 26 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; seven.io has published no machine-readable contract that the pipeline could find. Engine: anthropic.'
+  x-evidence-tiers:
+    code-example: 24
+    documentation: -1
+    pages-with-code: 25
+    pages-read: 26
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-13'
+  x-generator: generate-contract-from-docs.py
+  x-engine: anthropic
+  x-sources:
+  - https://docs.seven.io/en/rest-api/endpoints/rcs
+  - https://docs.seven.io/en/rest-api/endpoints/sms
+  - https://docs.seven.io/en/rest-api/endpoints/voice
+  - https://docs.seven.io/en/rest-api/endpoints/groups
+  - https://docs.seven.io/en/rest-api/endpoints/lookup
+  - https://docs.seven.io/en/rest-api/endpoints/account
+  - https://docs.seven.io/en/rest-api/endpoints/logbook
+  - https://docs.seven.io/en/rest-api/endpoints/numbers
+  - https://docs.seven.io/en/rest-api/endpoints/contacts
+  - https://docs.seven.io/en/rest-api/endpoints/webhooks
+  - https://docs.seven.io/en/rest-api/endpoints/whatsapp
+  - https://docs.seven.io/en/rest-api/endpoints/subaccounts
+  - https://docs.seven.io/en/rest-api/endpoints/status-reports
+  - https://docs.seven.io/en/rest-api/endpoints/sender-identifiers
+  - https://www.seven.io/en/docs/gateway/http-api/mnp-lookup
+  - https://docs.seven.io/en/rest-api/signing
+  - https://docs.seven.io/en/rest-api/oauth2.0
+  - https://docs.seven.io/en/rest-api/first-steps
+  - https://docs.seven.io/en/rest-api/authentication
+  - https://www.seven.io/en/developer
+  - https://help.seven.io/en/developer/deactivation-of-unused-api-keys
+  - https://help.seven.io/de/entwickler/deaktivierung-ungenutzer-api-keys
+  - https://help.seven.io/fr/developpeur/desactivation-des-cles-api-inutilisees
+  - https://help.seven.io/es/desarrollador/desactivacion-de-api-keys-no-utilizadas
+  - https://help.seven.io/pt/desenvolvedor/desativacao-de-chaves-de-api-nao-utilizadas
+  - https://www.seven.io/en/products/number-validation/mnp-lookup
+servers:
+- url: https://gateway.seven.io
+security:
+- apiKey: []
+tags:
+- name: Waba
+paths:
+  /api/waba/messages/{id}:
+    delete:
+      operationId: delete_api_waba_messages_id
+      tags:
+      - Waba
+      summary: Delete a scheduled WhatsApp message before it has been sent
+      x-source: https://docs.seven.io/en/rest-api/endpoints/whatsapp
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteApiWabaMessagesIdResponse'
+      x-evidence:
+        kind: documentation
+  /api/waba/templates:
+    get:
+      operationId: get_api_waba_templates
+      tags:
+      - Waba
+      summary: Returns the message templates of the WhatsApp Business Account behind a sender…
+      x-source: https://docs.seven.io/en/rest-api/endpoints/whatsapp
+      parameters:
+      - name: from
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Your registered WhatsApp Business sender number.
+      - name: name
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Only return templates with this exact name.
+      - name: status
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Only return templates with this status, e.g. APPROVED, PENDING, REJECTED, PAUSED.
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetApiWabaTemplatesResponse'
+      x-evidence:
+        kind: documentation
+components:
+  schemas:
+    DeleteApiWabaMessagesIdResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+          description: Whether the message was successfully deleted.
+    GetApiWabaTemplatesResponse:
+      type: object
+      properties:
+        templates:
+          type: array
+          description: Array of template objects.
+        id:
+          type: string
+          description: Template ID.
+        name:
+          type: string
+          description: Template name.
+        language:
+          type: string
+          description: Template language.
+        status:
+          type: string
+          description: Approval status as reported by WhatsApp.
+        category:
+          type: string
+          description: Template category.
+        rejected_reason:
+          type: string
+          description: Reason given by WhatsApp for a rejection.
+        parameter_format:
+          type: string
+          description: POSITIONAL or NAMED parameter format.
+        variables:
+          type: object
+          description: Placeholders to fill when sending.
+        components:
+          type: array
+          description: Template definition as returned by WhatsApp.
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-Api-Key

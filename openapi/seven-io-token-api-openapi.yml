@@ -1,0 +1,141 @@
+openapi: 3.2.0
+info:
+  title: seven.io Token API
+  version: '2026-10-13'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-13: 23 operation(s) read from 26 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; seven.io has published no machine-readable contract that the pipeline could find. Engine: anthropic.'
+  x-evidence-tiers:
+    code-example: 24
+    documentation: -1
+    pages-with-code: 25
+    pages-read: 26
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-13'
+  x-generator: generate-contract-from-docs.py
+  x-engine: anthropic
+  x-sources:
+  - https://docs.seven.io/en/rest-api/endpoints/rcs
+  - https://docs.seven.io/en/rest-api/endpoints/sms
+  - https://docs.seven.io/en/rest-api/endpoints/voice
+  - https://docs.seven.io/en/rest-api/endpoints/groups
+  - https://docs.seven.io/en/rest-api/endpoints/lookup
+  - https://docs.seven.io/en/rest-api/endpoints/account
+  - https://docs.seven.io/en/rest-api/endpoints/logbook
+  - https://docs.seven.io/en/rest-api/endpoints/numbers
+  - https://docs.seven.io/en/rest-api/endpoints/contacts
+  - https://docs.seven.io/en/rest-api/endpoints/webhooks
+  - https://docs.seven.io/en/rest-api/endpoints/whatsapp
+  - https://docs.seven.io/en/rest-api/endpoints/subaccounts
+  - https://docs.seven.io/en/rest-api/endpoints/status-reports
+  - https://docs.seven.io/en/rest-api/endpoints/sender-identifiers
+  - https://www.seven.io/en/docs/gateway/http-api/mnp-lookup
+  - https://docs.seven.io/en/rest-api/signing
+  - https://docs.seven.io/en/rest-api/oauth2.0
+  - https://docs.seven.io/en/rest-api/first-steps
+  - https://docs.seven.io/en/rest-api/authentication
+  - https://www.seven.io/en/developer
+  - https://help.seven.io/en/developer/deactivation-of-unused-api-keys
+  - https://help.seven.io/de/entwickler/deaktivierung-ungenutzer-api-keys
+  - https://help.seven.io/fr/developpeur/desactivation-des-cles-api-inutilisees
+  - https://help.seven.io/es/desarrollador/desactivacion-de-api-keys-no-utilizadas
+  - https://help.seven.io/pt/desenvolvedor/desativacao-de-chaves-de-api-nao-utilizadas
+  - https://www.seven.io/en/products/number-validation/mnp-lookup
+servers:
+- url: https://gateway.seven.io
+security:
+- apiKey: []
+tags:
+- name: Token
+paths:
+  /token:
+    get:
+      operationId: get_token
+      tags:
+      - Token
+      summary: GET /token
+      x-source: https://docs.seven.io/en/rest-api/oauth2.0
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetTokenResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -u testclient:testsecret https://oauth.seven.io/token  -d 'grant_type=authorization_code&code=9ccb478a7cbe043c1df211f1d52a6437f8756cf8' \n Copy Copied! \n If successful, you will receive data in JSON format as follows: \n Response { \n \"access_token\" : \"b1a9391d0469cafe30258893ab6025d4ad94ecec\" , \n \"expires_in\" : 3600 , \n \"token_type\" : \"Bearer\" , \n \"scope\" : \"sms\" , \n \"refresh_token\" : \"ffd8e622"
+    post:
+      operationId: post_token
+      tags:
+      - Token
+      summary: Retrieve access token or update access token using refresh token
+      x-source: https://docs.seven.io/en/rest-api/oauth2.0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostTokenRequest'
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostTokenResponse'
+      x-evidence:
+        kind: documentation
+components:
+  schemas:
+    GetTokenResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+        expires_in:
+          type: integer
+        token_type:
+          type: string
+        scope:
+          type: string
+        refresh_token:
+          type: string
+    PostTokenRequest:
+      type: object
+      properties:
+        grant_type:
+          type: string
+          description: Either 'authorization_code' or 'refresh_token'
+        code:
+          type: string
+          description: The authorization code from step 3 (required when grant_type is authorization_code)
+        refresh_token:
+          type: string
+          description: The refresh token (required when grant_type is refresh_token)
+      required:
+      - grant_type
+    PostTokenResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+          description: The access token to use for API calls
+        expires_in:
+          type: integer
+          description: Token lifetime in seconds
+        token_type:
+          type: string
+          description: Type of token (Bearer)
+        scope:
+          type: string
+          description: The granted scopes
+        refresh_token:
+          type: string
+          description: The refresh token for obtaining new access tokens
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-Api-Key

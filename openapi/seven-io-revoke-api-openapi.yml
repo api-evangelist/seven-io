@@ -1,0 +1,96 @@
+openapi: 3.2.0
+info:
+  title: seven.io Revoke API
+  version: '2026-10-13'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-13: 23 operation(s) read from 26 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; seven.io has published no machine-readable contract that the pipeline could find. Engine: anthropic.'
+  x-evidence-tiers:
+    code-example: 24
+    documentation: -1
+    pages-with-code: 25
+    pages-read: 26
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-13'
+  x-generator: generate-contract-from-docs.py
+  x-engine: anthropic
+  x-sources:
+  - https://docs.seven.io/en/rest-api/endpoints/rcs
+  - https://docs.seven.io/en/rest-api/endpoints/sms
+  - https://docs.seven.io/en/rest-api/endpoints/voice
+  - https://docs.seven.io/en/rest-api/endpoints/groups
+  - https://docs.seven.io/en/rest-api/endpoints/lookup
+  - https://docs.seven.io/en/rest-api/endpoints/account
+  - https://docs.seven.io/en/rest-api/endpoints/logbook
+  - https://docs.seven.io/en/rest-api/endpoints/numbers
+  - https://docs.seven.io/en/rest-api/endpoints/contacts
+  - https://docs.seven.io/en/rest-api/endpoints/webhooks
+  - https://docs.seven.io/en/rest-api/endpoints/whatsapp
+  - https://docs.seven.io/en/rest-api/endpoints/subaccounts
+  - https://docs.seven.io/en/rest-api/endpoints/status-reports
+  - https://docs.seven.io/en/rest-api/endpoints/sender-identifiers
+  - https://www.seven.io/en/docs/gateway/http-api/mnp-lookup
+  - https://docs.seven.io/en/rest-api/signing
+  - https://docs.seven.io/en/rest-api/oauth2.0
+  - https://docs.seven.io/en/rest-api/first-steps
+  - https://docs.seven.io/en/rest-api/authentication
+  - https://www.seven.io/en/developer
+  - https://help.seven.io/en/developer/deactivation-of-unused-api-keys
+  - https://help.seven.io/de/entwickler/deaktivierung-ungenutzer-api-keys
+  - https://help.seven.io/fr/developpeur/desactivation-des-cles-api-inutilisees
+  - https://help.seven.io/es/desarrollador/desactivacion-de-api-keys-no-utilizadas
+  - https://help.seven.io/pt/desenvolvedor/desativacao-de-chaves-de-api-nao-utilizadas
+  - https://www.seven.io/en/products/number-validation/mnp-lookup
+servers:
+- url: https://gateway.seven.io
+security:
+- apiKey: []
+tags:
+- name: Revoke
+paths:
+  /revoke:
+    post:
+      operationId: post_revoke
+      tags:
+      - Revoke
+      summary: Revoke token
+      x-source: https://docs.seven.io/en/rest-api/oauth2.0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostRevokeRequest'
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostRevokeResponse'
+      x-evidence:
+        kind: documentation
+components:
+  schemas:
+    PostRevokeRequest:
+      type: object
+      properties:
+        token:
+          type: string
+          description: The access token or refresh token to be revoked
+        token_type_hint:
+          type: string
+          description: 'A hint about the type of the token: access_token or refresh_token'
+      required:
+      - token
+    PostRevokeResponse:
+      type: object
+      properties:
+        revoked:
+          type: boolean
+          description: Whether the token was successfully revoked
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-Api-Key

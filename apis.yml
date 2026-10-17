@@ -90,16 +90,236 @@ common:
   url: https://status.seven.io
 
 apis:
-- aid: seven-io:seven-io-api
-  name: seven.io API
-  description: 'seven.io API as documented publicly: 23 operations. Contract generated from the documentation by API Evangelist (2026-10-13);
-    not the provider''s own document.'
+- aid: seven-io:seven-io-events-api
+  name: seven.io Events API
+  description: The Events API from seven.io — 1 operation(s) for events.
   humanURL: https://docs.seven.io/en/rest-api/endpoints/rcs
   baseURL: https://gateway.seven.io
+  tags:
+  - Events
   properties:
   - type: OpenAPI
-    url: openapi/_ae-authored/seven-io-openapi-generated.yml
-    x-provenance: generated
+    url: openapi/seven-io-events-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/seven-io-patch-api-apiid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-waba-templates-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-rcs-agents-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-post-api-apiid-events-request-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-apiid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-apiid-id-response-schema.json
+- aid: seven-io:seven-io-journal-api
+  name: seven.io Journal API
+  description: The Journal API from seven.io — 1 operation(s) for journal.
+  humanURL: https://docs.seven.io/en/rest-api/endpoints/rcs
+  baseURL: https://gateway.seven.io
+  tags:
+  - Journal
+  properties:
+  - type: OpenAPI
+    url: openapi/seven-io-journal-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/seven-io-patch-api-apiid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-waba-templates-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-rcs-agents-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-post-api-apiid-events-request-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-apiid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-apiid-id-response-schema.json
+- aid: seven-io:seven-io-lookup-api
+  name: seven.io Lookup API
+  description: The Lookup API from seven.io — 1 operation(s) for lookup.
+  humanURL: https://docs.seven.io/en/rest-api/endpoints/rcs
+  baseURL: https://gateway.seven.io
+  tags:
+  - Lookup
+  properties:
+  - type: OpenAPI
+    url: openapi/seven-io-lookup-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/seven-io-patch-api-apiid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-waba-templates-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-rcs-agents-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-post-api-apiid-events-request-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-apiid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-apiid-id-response-schema.json
+- aid: seven-io:seven-io-messages-api
+  name: seven.io Messages API
+  description: The Messages API from seven.io — 1 operation(s) for messages.
+  humanURL: https://docs.seven.io/en/rest-api/endpoints/rcs
+  baseURL: https://gateway.seven.io
+  tags:
+  - Messages
+  properties:
+  - type: OpenAPI
+    url: openapi/seven-io-messages-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/seven-io-patch-api-apiid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-waba-templates-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-rcs-agents-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-post-api-apiid-events-request-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-apiid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-apiid-id-response-schema.json
+- aid: seven-io:seven-io-numbers-api
+  name: seven.io Numbers API
+  description: The Numbers API from seven.io — 2 operation(s) for numbers.
+  humanURL: https://docs.seven.io/en/rest-api/endpoints/rcs
+  baseURL: https://gateway.seven.io
+  tags:
+  - Numbers
+  properties:
+  - type: OpenAPI
+    url: openapi/seven-io-numbers-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/seven-io-patch-api-apiid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-waba-templates-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-rcs-agents-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-post-api-apiid-events-request-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-apiid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-apiid-id-response-schema.json
+- aid: seven-io:seven-io-rcs-api
+  name: seven.io Rcs API
+  description: The Rcs API from seven.io — 2 operation(s) for rcs.
+  humanURL: https://docs.seven.io/en/rest-api/endpoints/rcs
+  baseURL: https://gateway.seven.io
+  tags:
+  - Rcs
+  properties:
+  - type: OpenAPI
+    url: openapi/seven-io-rcs-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/seven-io-patch-api-apiid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-waba-templates-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-rcs-agents-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-post-api-apiid-events-request-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-apiid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-apiid-id-response-schema.json
+- aid: seven-io:seven-io-revoke-api
+  name: seven.io Revoke API
+  description: The Revoke API from seven.io — 1 operation(s) for revoke.
+  humanURL: https://docs.seven.io/en/rest-api/endpoints/rcs
+  baseURL: https://gateway.seven.io
+  tags:
+  - Revoke
+  properties:
+  - type: OpenAPI
+    url: openapi/seven-io-revoke-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/seven-io-patch-api-apiid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-waba-templates-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-rcs-agents-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-post-api-apiid-events-request-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-apiid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-apiid-id-response-schema.json
+- aid: seven-io:seven-io-seven-io-api-api
+  name: seven.io Seven.io API
+  description: The Seven.io API API from seven.io — 2 operation(s) for seven.io api.
+  humanURL: https://docs.seven.io/en/rest-api/endpoints/rcs
+  baseURL: https://gateway.seven.io
+  tags:
+  - Seven.io API
+  properties:
+  - type: OpenAPI
+    url: openapi/seven-io-seven-io-api-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/seven-io-patch-api-apiid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-waba-templates-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-rcs-agents-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-post-api-apiid-events-request-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-apiid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-apiid-id-response-schema.json
+- aid: seven-io:seven-io-token-api
+  name: seven.io Token API
+  description: The Token API from seven.io — 1 operation(s) for token.
+  humanURL: https://docs.seven.io/en/rest-api/endpoints/rcs
+  baseURL: https://gateway.seven.io
+  tags:
+  - Token
+  properties:
+  - type: OpenAPI
+    url: openapi/seven-io-token-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/seven-io-patch-api-apiid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-waba-templates-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-rcs-agents-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-post-api-apiid-events-request-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-apiid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-apiid-id-response-schema.json
+- aid: seven-io:seven-io-voice-api
+  name: seven.io Voice API
+  description: The Voice API from seven.io — 1 operation(s) for voice.
+  humanURL: https://docs.seven.io/en/rest-api/endpoints/rcs
+  baseURL: https://gateway.seven.io
+  tags:
+  - Voice
+  properties:
+  - type: OpenAPI
+    url: openapi/seven-io-voice-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/seven-io-patch-api-apiid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-waba-templates-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-rcs-agents-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-post-api-apiid-events-request-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-apiid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/seven-io-get-api-apiid-id-response-schema.json
+- aid: seven-io:seven-io-waba-api
+  name: seven.io Waba API
+  description: The Waba API from seven.io — 2 operation(s) for waba.
+  humanURL: https://docs.seven.io/en/rest-api/endpoints/rcs
+  baseURL: https://gateway.seven.io
+  tags:
+  - Waba
+  properties:
+  - type: OpenAPI
+    url: openapi/seven-io-waba-api-openapi.yml
   - type: JSONSchema
     url: json-schema/seven-io-patch-api-apiid-response-schema.json
   - type: JSONSchema

@@ -1,0 +1,115 @@
+openapi: 3.2.0
+info:
+  title: seven.io Events API
+  version: '2026-10-13'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-13: 23 operation(s) read from 26 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; seven.io has published no machine-readable contract that the pipeline could find. Engine: anthropic.'
+  x-evidence-tiers:
+    code-example: 24
+    documentation: -1
+    pages-with-code: 25
+    pages-read: 26
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-13'
+  x-generator: generate-contract-from-docs.py
+  x-engine: anthropic
+  x-sources:
+  - https://docs.seven.io/en/rest-api/endpoints/rcs
+  - https://docs.seven.io/en/rest-api/endpoints/sms
+  - https://docs.seven.io/en/rest-api/endpoints/voice
+  - https://docs.seven.io/en/rest-api/endpoints/groups
+  - https://docs.seven.io/en/rest-api/endpoints/lookup
+  - https://docs.seven.io/en/rest-api/endpoints/account
+  - https://docs.seven.io/en/rest-api/endpoints/logbook
+  - https://docs.seven.io/en/rest-api/endpoints/numbers
+  - https://docs.seven.io/en/rest-api/endpoints/contacts
+  - https://docs.seven.io/en/rest-api/endpoints/webhooks
+  - https://docs.seven.io/en/rest-api/endpoints/whatsapp
+  - https://docs.seven.io/en/rest-api/endpoints/subaccounts
+  - https://docs.seven.io/en/rest-api/endpoints/status-reports
+  - https://docs.seven.io/en/rest-api/endpoints/sender-identifiers
+  - https://www.seven.io/en/docs/gateway/http-api/mnp-lookup
+  - https://docs.seven.io/en/rest-api/signing
+  - https://docs.seven.io/en/rest-api/oauth2.0
+  - https://docs.seven.io/en/rest-api/first-steps
+  - https://docs.seven.io/en/rest-api/authentication
+  - https://www.seven.io/en/developer
+  - https://help.seven.io/en/developer/deactivation-of-unused-api-keys
+  - https://help.seven.io/de/entwickler/deaktivierung-ungenutzer-api-keys
+  - https://help.seven.io/fr/developpeur/desactivation-des-cles-api-inutilisees
+  - https://help.seven.io/es/desarrollador/desactivacion-de-api-keys-no-utilizadas
+  - https://help.seven.io/pt/desenvolvedor/desativacao-de-chaves-de-api-nao-utilizadas
+  - https://www.seven.io/en/products/number-validation/mnp-lookup
+servers:
+- url: https://gateway.seven.io
+security:
+- apiKey: []
+tags:
+- name: Events
+paths:
+  /api/{apiid}/events:
+    post:
+      operationId: post_api_apiid_events
+      tags:
+      - Events
+      summary: Send conversation events such as read receipts, typing indicators, or reactions…
+      x-source: https://docs.seven.io/en/rest-api/endpoints/whatsapp
+      parameters:
+      - name: apiid
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostApiApiidEventsRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostApiApiidEventsResponse'
+      x-evidence:
+        kind: documentation
+        collapsed_from: 2 example path(s) differing only at apiId
+components:
+  schemas:
+    PostApiApiidEventsResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+          description: Whether the event was successfully sent.
+    PostApiApiidEventsRequest:
+      type: object
+      properties:
+        from:
+          type: string
+          description: Your registered WhatsApp Business sender number.
+        to:
+          type: string
+          description: Recipient phone number in international format.
+        event:
+          type: string
+          description: 'The event type: read, is_typing, or reaction.'
+        msg_id:
+          type: string
+          description: Explicit message ID to mark as read.
+        message_id:
+          type: string
+          description: The WhatsApp message ID of the message to react to.
+        emoji:
+          type: string
+          description: The emoji to use as reaction.
+      required:
+      - event
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-Api-Key

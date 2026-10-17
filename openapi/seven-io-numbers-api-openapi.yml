@@ -1,0 +1,207 @@
+openapi: 3.2.0
+info:
+  title: seven.io Numbers API
+  version: '2026-10-13'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-13: 23 operation(s) read from 26 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; seven.io has published no machine-readable contract that the pipeline could find. Engine: anthropic.'
+  x-evidence-tiers:
+    code-example: 24
+    documentation: -1
+    pages-with-code: 25
+    pages-read: 26
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-13'
+  x-generator: generate-contract-from-docs.py
+  x-engine: anthropic
+  x-sources:
+  - https://docs.seven.io/en/rest-api/endpoints/rcs
+  - https://docs.seven.io/en/rest-api/endpoints/sms
+  - https://docs.seven.io/en/rest-api/endpoints/voice
+  - https://docs.seven.io/en/rest-api/endpoints/groups
+  - https://docs.seven.io/en/rest-api/endpoints/lookup
+  - https://docs.seven.io/en/rest-api/endpoints/account
+  - https://docs.seven.io/en/rest-api/endpoints/logbook
+  - https://docs.seven.io/en/rest-api/endpoints/numbers
+  - https://docs.seven.io/en/rest-api/endpoints/contacts
+  - https://docs.seven.io/en/rest-api/endpoints/webhooks
+  - https://docs.seven.io/en/rest-api/endpoints/whatsapp
+  - https://docs.seven.io/en/rest-api/endpoints/subaccounts
+  - https://docs.seven.io/en/rest-api/endpoints/status-reports
+  - https://docs.seven.io/en/rest-api/endpoints/sender-identifiers
+  - https://www.seven.io/en/docs/gateway/http-api/mnp-lookup
+  - https://docs.seven.io/en/rest-api/signing
+  - https://docs.seven.io/en/rest-api/oauth2.0
+  - https://docs.seven.io/en/rest-api/first-steps
+  - https://docs.seven.io/en/rest-api/authentication
+  - https://www.seven.io/en/developer
+  - https://help.seven.io/en/developer/deactivation-of-unused-api-keys
+  - https://help.seven.io/de/entwickler/deaktivierung-ungenutzer-api-keys
+  - https://help.seven.io/fr/developpeur/desactivation-des-cles-api-inutilisees
+  - https://help.seven.io/es/desarrollador/desactivacion-de-api-keys-no-utilizadas
+  - https://help.seven.io/pt/desenvolvedor/desativacao-de-chaves-de-api-nao-utilizadas
+  - https://www.seven.io/en/products/number-validation/mnp-lookup
+servers:
+- url: https://gateway.seven.io
+security:
+- apiKey: []
+tags:
+- name: Numbers
+paths:
+  /api/numbers/active/{number}:
+    delete:
+      operationId: delete_api_numbers_active_number
+      tags:
+      - Numbers
+      summary: Delete a single active number by providing the phone number
+      x-source: https://docs.seven.io/en/rest-api/endpoints/numbers
+      parameters:
+      - name: number
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: delete_immediately
+        in: query
+        required: false
+        schema:
+          type: boolean
+        description: If set to true, the number will be deleted immediately. If set to false, the number will be deleted at the end of the current billing period.
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteApiNumbersActiveNumberResponse'
+      x-evidence:
+        kind: documentation
+    patch:
+      operationId: patch_api_numbers_active_number
+      tags:
+      - Numbers
+      summary: Update the details of a single active number by providing the phone number
+      x-source: https://docs.seven.io/en/rest-api/endpoints/numbers
+      parameters:
+      - name: number
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: friendly_name
+        in: query
+        required: false
+        schema:
+          type: string
+        description: The updated friendly name for the number.
+      - name: sms_forward
+        in: query
+        required: false
+        schema:
+          type: array
+        description: The phone number to forward incoming SMS to. If empty, incoming SMS won't be forwarded by SMS.
+      - name: email_forward
+        in: query
+        required: false
+        schema:
+          type: array
+        description: The email address to forward incoming SMS to. If empty, incoming SMS won't be forwarded by email.
+      - name: slack_forward
+        in: query
+        required: false
+        schema:
+          type: string
+        description: The Slack webhook URL to forward incoming SMS to. If empty, incoming SMS won't be forwarded by Slack.
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatchApiNumbersActiveNumberResponse'
+      x-evidence:
+        kind: documentation
+  /api/numbers/{numberid}:
+    get:
+      operationId: get_api_numbers_numberid
+      tags:
+      - Numbers
+      summary: Get a list of all active numbers that are currently associated with your account
+      x-source: https://docs.seven.io/en/rest-api/endpoints/numbers
+      parameters:
+      - name: numberid
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: country
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetApiNumbersNumberidResponse'
+      x-evidence:
+        kind: documentation
+        collapsed_from: 2 example path(s) differing only at numberId
+    post:
+      operationId: post_api_numbers_numberid
+      tags:
+      - Numbers
+      summary: POST /api/numbers/order
+      x-source: https://docs.seven.io/en/rest-api/endpoints/numbers
+      parameters:
+      - name: numberid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -X POST \"https://gateway.seven.io/api/numbers/order\"  -H \"x-api-key: YOUR_API_KEY \"  -d 'number=4523854818' \n Copy Copied! { \n \"success\" : true , \n \"error\" : null , \n } \n Copy Copied! \n GET /api/numbers/active Active numbers \n Get a list of all active numbers that are currently associated with your account. \n GET /api/numbers/active curl -X GET \"https://gateway.seven.io/api/numbers/active\"  -"
+        collapsed_from: 2 example path(s) differing only at numberId
+components:
+  schemas:
+    PatchApiNumbersActiveNumberResponse:
+      type: object
+      properties:
+        country:
+          type: string
+        number:
+          type: string
+        friendly_name:
+          type: string
+        billing:
+          type: object
+        features:
+          type: object
+        forward_sms_mo:
+          type: object
+        expires:
+          type: string
+        created:
+          type: string
+    DeleteApiNumbersActiveNumberResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+    GetApiNumbersNumberidResponse:
+      type: object
+      properties:
+        activeNumbers:
+          type: array
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-Api-Key

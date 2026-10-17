@@ -1,0 +1,498 @@
+openapi: 3.2.0
+info:
+  title: Seven.io API
+  version: '2026-10-13'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-13: 23 operation(s) read from 26 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; seven.io has published no machine-readable contract that the pipeline could find. Engine: anthropic.'
+  x-evidence-tiers:
+    code-example: 24
+    documentation: -1
+    pages-with-code: 25
+    pages-read: 26
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-13'
+  x-generator: generate-contract-from-docs.py
+  x-engine: anthropic
+  x-sources:
+  - https://docs.seven.io/en/rest-api/endpoints/rcs
+  - https://docs.seven.io/en/rest-api/endpoints/sms
+  - https://docs.seven.io/en/rest-api/endpoints/voice
+  - https://docs.seven.io/en/rest-api/endpoints/groups
+  - https://docs.seven.io/en/rest-api/endpoints/lookup
+  - https://docs.seven.io/en/rest-api/endpoints/account
+  - https://docs.seven.io/en/rest-api/endpoints/logbook
+  - https://docs.seven.io/en/rest-api/endpoints/numbers
+  - https://docs.seven.io/en/rest-api/endpoints/contacts
+  - https://docs.seven.io/en/rest-api/endpoints/webhooks
+  - https://docs.seven.io/en/rest-api/endpoints/whatsapp
+  - https://docs.seven.io/en/rest-api/endpoints/subaccounts
+  - https://docs.seven.io/en/rest-api/endpoints/status-reports
+  - https://docs.seven.io/en/rest-api/endpoints/sender-identifiers
+  - https://www.seven.io/en/docs/gateway/http-api/mnp-lookup
+  - https://docs.seven.io/en/rest-api/signing
+  - https://docs.seven.io/en/rest-api/oauth2.0
+  - https://docs.seven.io/en/rest-api/first-steps
+  - https://docs.seven.io/en/rest-api/authentication
+  - https://www.seven.io/en/developer
+  - https://help.seven.io/en/developer/deactivation-of-unused-api-keys
+  - https://help.seven.io/de/entwickler/deaktivierung-ungenutzer-api-keys
+  - https://help.seven.io/fr/developpeur/desactivation-des-cles-api-inutilisees
+  - https://help.seven.io/es/desarrollador/desactivacion-de-api-keys-no-utilizadas
+  - https://help.seven.io/pt/desenvolvedor/desativacao-de-chaves-de-api-nao-utilizadas
+  - https://www.seven.io/en/products/number-validation/mnp-lookup
+servers:
+- url: https://gateway.seven.io
+security:
+- apiKey: []
+tags:
+- name: Seven.io API
+paths:
+  /api/{apiid}:
+    delete:
+      operationId: delete_api_apiid
+      tags:
+      - Seven.io API
+      summary: Delete webhook by ID or by creation parameters
+      x-source: https://docs.seven.io/en/rest-api/endpoints/webhooks
+      parameters:
+      - name: apiid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteApiApiidResponse'
+      x-evidence:
+        kind: documentation
+        collapsed_from: 2 example path(s) differing only at apiId
+    get:
+      operationId: get_api_apiid
+      tags:
+      - Seven.io API
+      summary: Retrieve detailed statistics of your account directly via our API
+      x-source: https://docs.seven.io/en/rest-api/endpoints/account
+      parameters:
+      - name: apiid
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: start
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Start date of the statistics in the format YYYY-MM-DD. The date from 30 days ago is set by default.
+      - name: end
+        in: query
+        required: false
+        schema:
+          type: string
+        description: End date of the statistics. The current day by default.
+      - name: label
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Only shows data for a specific label.
+      - name: subaccounts
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Receive data only for the main account, for all your (sub)accounts or only for specific subaccounts.
+      - name: group_by
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Defines the grouping of the data. The default value is date.
+      - name: p
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetApiApiidResponse'
+      x-evidence:
+        kind: documentation
+        collapsed_from: 11 example path(s) differing only at apiId
+    patch:
+      operationId: patch_api_apiid
+      tags:
+      - Seven.io API
+      summary: PATCH /api/contacts
+      x-source: https://docs.seven.io/en/rest-api/endpoints/contacts
+      parameters:
+      - name: apiid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatchApiApiidResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl POST /api/contacts curl https://gateway.seven.io/api/contacts  -H \"X-Api key: YOUR_API_KEY \"  -d \"firstname=Frank\"  -d \"lastname=McAllister\"  -d \"mobile_number=1-800-759-3000\"  -d \"avatar=https://picsum.photos/200\" \n Copy Copied! Response { \n \"id\" : 12876882 , \n \"avatar\" : \"https://static.seven.io/uploads/contact_images/4A000c0d4e9431F483090dE8D13F3806.jpg\" , \n \"validation\" : { \n \"state\" : nu"
+        collapsed_from: 2 example path(s) differing only at apiId
+    post:
+      operationId: post_api_apiid
+      tags:
+      - Seven.io API
+      summary: Create contact
+      x-source: https://docs.seven.io/en/rest-api/endpoints/contacts
+      parameters:
+      - name: apiid
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostApiApiidRequest'
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostApiApiidResponse'
+      x-evidence:
+        kind: documentation
+        collapsed_from: 7 example path(s) differing only at apiId
+  /api/{apiid}/{id}:
+    delete:
+      operationId: delete_api_apiid_id
+      tags:
+      - Seven.io API
+      summary: Delete contact
+      x-source: https://docs.seven.io/en/rest-api/endpoints/contacts
+      parameters:
+      - name: apiid
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+        collapsed_from: 2 example path(s) differing only at apiId
+    get:
+      operationId: get_api_apiid_id
+      tags:
+      - Seven.io API
+      summary: Retrieve contact
+      x-source: https://docs.seven.io/en/rest-api/endpoints/contacts
+      parameters:
+      - name: apiid
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetApiApiidIdResponse'
+      x-evidence:
+        kind: documentation
+        collapsed_from: 2 example path(s) differing only at apiId
+    patch:
+      operationId: patch_api_apiid_id
+      tags:
+      - Seven.io API
+      summary: Update contact
+      x-source: https://docs.seven.io/en/rest-api/endpoints/contacts
+      parameters:
+      - name: apiid
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchApiApiidIdRequest'
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatchApiApiidIdResponse'
+      x-evidence:
+        kind: documentation
+        collapsed_from: 2 example path(s) differing only at apiId
+components:
+  schemas:
+    PostApiApiidResponse:
+      type: object
+      properties:
+        success:
+          type: string
+        total_price:
+          type: number
+        balance:
+          type: number
+        debug:
+          type: boolean
+        messages:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              sender:
+                type: string
+              recipient:
+                type: string
+              text:
+                type: string
+              price:
+                type: number
+              success:
+                type: boolean
+              error:
+                type:
+                - string
+                - 'null'
+              error_text:
+                type:
+                - string
+                - 'null'
+    GetApiApiidResponse:
+      type: object
+      properties:
+        countCountries:
+          type: integer
+        countNetworks:
+          type: integer
+        countries:
+          type: array
+          items:
+            type: object
+            properties:
+              countryCode:
+                type: string
+              countryName:
+                type: string
+              countryPrefix:
+                type: string
+              networks:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    mcc:
+                      type: string
+                    mncs:
+                      type: array
+                      items:
+                        type: string
+                    networkName:
+                      type: string
+                    price:
+                      type: number
+                    features:
+                      type: array
+                      items: {}
+                    comment:
+                      type: string
+    PatchApiApiidIdResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique ID of the contact
+        avatar:
+          type: string
+          description: The avatar URL of the contact
+        validation:
+          type: object
+          description: Validation state and timestamp
+        initials:
+          type: object
+          description: Contact initials and color
+        properties:
+          type: object
+          description: Contact properties
+        groups:
+          type: array
+          description: Array of group IDs the contact belongs to
+        created:
+          type: string
+          description: Time at which the contact was created
+    PatchApiApiidIdRequest:
+      type: object
+      properties:
+        firstname:
+          type: string
+          description: First name of the contact
+        lastname:
+          type: string
+          description: Last name of the contact
+    PatchApiApiidResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        avatar:
+          type: string
+        validation:
+          type: object
+          properties:
+            state:
+              type:
+              - string
+              - 'null'
+            timestamp:
+              type:
+              - string
+              - 'null'
+        initials:
+          type: object
+          properties:
+            initials:
+              type: string
+            color:
+              type: string
+        properties:
+          type: object
+          properties:
+            firstname:
+              type: string
+            lastname:
+              type: string
+            mobile_number:
+              type: string
+            home_number:
+              type:
+              - string
+              - 'null'
+            email:
+              type:
+              - string
+              - 'null'
+            address:
+              type:
+              - string
+              - 'null'
+            postal_code:
+              type:
+              - string
+              - 'null'
+            city:
+              type:
+              - string
+              - 'null'
+            birthday:
+              type:
+              - string
+              - 'null'
+            notes:
+              type:
+              - string
+              - 'null'
+        groups:
+          type: array
+          items: {}
+        created:
+          type: string
+          format: date-time
+    DeleteApiApiidResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        code:
+          type: string
+        id:
+          type: integer
+        error_message:
+          type: string
+    GetApiApiidIdResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique ID of the contact
+        avatar:
+          type: string
+          description: The avatar URL of the contact
+        validation:
+          type: object
+          description: Validation state and timestamp
+        initials:
+          type: object
+          description: Contact initials and color
+        properties:
+          type: object
+          description: Contact properties
+        groups:
+          type: array
+          description: Array of group IDs the contact belongs to
+        created:
+          type: string
+          description: Time at which the contact was created
+    PostApiApiidRequest:
+      type: object
+      properties:
+        firstname:
+          type: string
+          description: First name of the contact
+        lastname:
+          type: string
+          description: Last name of the contact
+        mobile_number:
+          type: string
+          description: Mobile phone number of the contact
+        avatar:
+          type: string
+          description: The avatar URL of the contact
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-Api-Key

@@ -1,0 +1,149 @@
+openapi: 3.2.0
+info:
+  title: seven.io Rcs API
+  version: '2026-10-13'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-13: 23 operation(s) read from 26 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; seven.io has published no machine-readable contract that the pipeline could find. Engine: anthropic.'
+  x-evidence-tiers:
+    code-example: 24
+    documentation: -1
+    pages-with-code: 25
+    pages-read: 26
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-13'
+  x-generator: generate-contract-from-docs.py
+  x-engine: anthropic
+  x-sources:
+  - https://docs.seven.io/en/rest-api/endpoints/rcs
+  - https://docs.seven.io/en/rest-api/endpoints/sms
+  - https://docs.seven.io/en/rest-api/endpoints/voice
+  - https://docs.seven.io/en/rest-api/endpoints/groups
+  - https://docs.seven.io/en/rest-api/endpoints/lookup
+  - https://docs.seven.io/en/rest-api/endpoints/account
+  - https://docs.seven.io/en/rest-api/endpoints/logbook
+  - https://docs.seven.io/en/rest-api/endpoints/numbers
+  - https://docs.seven.io/en/rest-api/endpoints/contacts
+  - https://docs.seven.io/en/rest-api/endpoints/webhooks
+  - https://docs.seven.io/en/rest-api/endpoints/whatsapp
+  - https://docs.seven.io/en/rest-api/endpoints/subaccounts
+  - https://docs.seven.io/en/rest-api/endpoints/status-reports
+  - https://docs.seven.io/en/rest-api/endpoints/sender-identifiers
+  - https://www.seven.io/en/docs/gateway/http-api/mnp-lookup
+  - https://docs.seven.io/en/rest-api/signing
+  - https://docs.seven.io/en/rest-api/oauth2.0
+  - https://docs.seven.io/en/rest-api/first-steps
+  - https://docs.seven.io/en/rest-api/authentication
+  - https://www.seven.io/en/developer
+  - https://help.seven.io/en/developer/deactivation-of-unused-api-keys
+  - https://help.seven.io/de/entwickler/deaktivierung-ungenutzer-api-keys
+  - https://help.seven.io/fr/developpeur/desactivation-des-cles-api-inutilisees
+  - https://help.seven.io/es/desarrollador/desactivacion-de-api-keys-no-utilizadas
+  - https://help.seven.io/pt/desenvolvedor/desativacao-de-chaves-de-api-nao-utilizadas
+  - https://www.seven.io/en/products/number-validation/mnp-lookup
+servers:
+- url: https://gateway.seven.io
+security:
+- apiKey: []
+tags:
+- name: Rcs
+paths:
+  /api/rcs/agents:
+    get:
+      operationId: get_api_rcs_agents
+      tags:
+      - Rcs
+      summary: This endpoint returns a list of all RCS agents available in your account…
+      x-source: https://docs.seven.io/en/rest-api/endpoints/rcs
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetApiRcsAgentsResponse'
+      x-evidence:
+        kind: documentation
+  /api/rcs/{rcid}:
+    post:
+      operationId: post_api_rcs_rcid
+      tags:
+      - Rcs
+      summary: Send an event to a phone number to provide users with a more authentic…
+      x-source: https://docs.seven.io/en/rest-api/endpoints/rcs
+      parameters:
+      - name: rcid
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: to
+        in: query
+        required: true
+        schema:
+          type: string
+        description: The phone number to which you want to send the event.
+      - name: event
+        in: query
+        required: true
+        schema:
+          type: string
+        description: 'The event to be sent. Can have one of the following values: IS_TYPING or READ.'
+      - name: msg_id
+        in: query
+        required: false
+        schema:
+          type: string
+        description: The ID of the received RCS to which you want to send the event.
+      - name: from
+        in: query
+        required: false
+        schema:
+          type: string
+        description: The agent ID.
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostApiRcsRcidResponse'
+      x-evidence:
+        kind: documentation
+        collapsed_from: 2 example path(s) differing only at rcId
+components:
+  schemas:
+    GetApiRcsAgentsResponse:
+      type: object
+      properties:
+        agents:
+          type: array
+          description: Array containing all RCS agents available for your account.
+        agents[].id:
+          type: string
+          description: The unique ID of the agent.
+        agents[].display_name:
+          type: string
+          description: The display name of the agent visible to the recipient.
+        agents[].status:
+          type: string
+          description: 'The current status of the agent. Possible values: pending, test, launched, approved.'
+        agents[].logo_url:
+          type: string
+          description: URL to the agent's logo.
+        agents[].created:
+          type: string
+          description: Creation date of the agent in the format yyyy-mm-dd hh:ii:ss.
+        agents[].is_generic:
+          type: boolean
+          description: Indicates whether this is a generic agent.
+    PostApiRcsRcidResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-Api-Key
