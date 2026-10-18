@@ -96,6 +96,8 @@ apis:
   humanURL: https://docs.seven.io/en/rest-api/endpoints/rcs
   baseURL: https://gateway.seven.io
   tags:
+  - Event
+  tags_raw:
   - Events
   properties:
   - type: OpenAPI
@@ -118,6 +120,8 @@ apis:
   humanURL: https://docs.seven.io/en/rest-api/endpoints/rcs
   baseURL: https://gateway.seven.io
   tags:
+  - Journals
+  tags_raw:
   - Journal
   properties:
   - type: OpenAPI
@@ -162,6 +166,8 @@ apis:
   humanURL: https://docs.seven.io/en/rest-api/endpoints/rcs
   baseURL: https://gateway.seven.io
   tags:
+  - Message
+  tags_raw:
   - Messages
   properties:
   - type: OpenAPI
@@ -206,6 +212,8 @@ apis:
   humanURL: https://docs.seven.io/en/rest-api/endpoints/rcs
   baseURL: https://gateway.seven.io
   tags:
+  - RCS
+  tags_raw:
   - Rcs
   properties:
   - type: OpenAPI
@@ -272,6 +280,8 @@ apis:
   humanURL: https://docs.seven.io/en/rest-api/endpoints/rcs
   baseURL: https://gateway.seven.io
   tags:
+  - Tokens
+  tags_raw:
   - Token
   properties:
   - type: OpenAPI
