@@ -13,7 +13,7 @@
   channel: ipaas-usage
   evidence: https://zapier.com/apps/seven/integrations/calendly
   source: edge
-  status: pending-partner-spec
+  status: pending-generation
   arazzo: null
 - slug: seven-io-close
   label: Close
@@ -25,7 +25,7 @@
   channel: ipaas-usage
   evidence: https://zapier.com/apps/seven/integrations/close
   source: edge
-  status: pending-partner-spec
+  status: pending-generation
   arazzo: null
 - slug: seven-io-heyflow
   label: Heyflow
@@ -60,7 +60,7 @@
   channel: ipaas-usage
   evidence: https://zapier.com/apps/seven/integrations/google-calendar
   source: edge
-  status: pending-partner-spec
+  status: pending-generation
   arazzo: null
 - slug: seven-io-facebook-lead-ads
   label: Facebook Lead Ads
@@ -72,7 +72,7 @@
   channel: ipaas-usage
   evidence: https://zapier.com/apps/seven/integrations/facebook-lead-ads
   source: edge
-  status: pending-partner-spec
+  status: pending-generation
   arazzo: null
 - slug: seven-io-google-docs
   label: Google Docs
@@ -84,7 +84,7 @@
   channel: ipaas-usage
   evidence: https://zapier.com/apps/seven/integrations/google-docs
   source: edge
-  status: pending-partner-spec
+  status: pending-generation
   arazzo: null
 - slug: seven-io-meistertask
   label: MeisterTask
@@ -107,7 +107,7 @@
   channel: ipaas-usage
   evidence: https://zapier.com/apps/seven/integrations/recruitee
   source: edge
-  status: pending-partner-spec
+  status: pending-generation
   arazzo: null
 - slug: seven-io-funnelcockpit
   label: FunnelCockpit
@@ -130,7 +130,7 @@
   channel: ipaas-usage
   evidence: https://zapier.com/apps/seven/integrations/pipedrive
   source: edge
-  status: pending-partner-spec
+  status: pending-generation
   arazzo: null
 - slug: seven-io-activecampaign
   label: ActiveCampaign
@@ -142,7 +142,7 @@
   channel: ipaas-usage
   evidence: https://zapier.com/apps/seven/integrations/activecampaign
   source: edge
-  status: pending-partner-spec
+  status: pending-generation
   arazzo: null
 - slug: seven-io-onepage
   label: Onepage
@@ -176,7 +176,7 @@
   channel: ipaas-usage
   evidence: https://zapier.com/apps/seven/integrations/semrush
   source: edge
-  status: pending-partner-spec
+  status: pending-generation
   arazzo: null
 - slug: seven-io-funnelforms-legacy
   label: Funnelforms Legacy
@@ -222,7 +222,7 @@
   channel: ipaas-usage
   evidence: https://zapier.com/apps/seven/integrations/google-drive
   source: edge
-  status: pending-partner-spec
+  status: pending-generation
   arazzo: null
 - slug: seven-io-introwise
   label: Introwise
@@ -245,7 +245,7 @@
   channel: ipaas-usage
   evidence: https://zapier.com/apps/seven/integrations/twilio
   source: edge
-  status: pending-partner-spec
+  status: pending-generation
   arazzo: null
 - slug: seven-io-stripe-legacy
   label: Stripe (Legacy)
@@ -257,7 +257,7 @@
   channel: ipaas-usage
   evidence: https://zapier.com/apps/seven/integrations/stripe-legacy
   source: edge
-  status: pending-partner-spec
+  status: pending-generation
   arazzo: null
 - slug: seven-io-booqable
   label: Booqable
@@ -269,7 +269,7 @@
   channel: ipaas-usage
   evidence: https://zapier.com/apps/seven/integrations/booqable
   source: edge
-  status: pending-partner-spec
+  status: pending-generation
   arazzo: null
 - slug: seven-io-google-sheets
   label: Google Sheets
@@ -281,7 +281,7 @@
   channel: ipaas-usage
   evidence: https://zapier.com/apps/seven/integrations/google-sheets
   source: edge
-  status: pending-partner-spec
+  status: pending-generation
   arazzo: null
 - slug: seven-io-chatgpt-openai
   label: ChatGPT (OpenAI)
@@ -304,7 +304,7 @@
   channel: ipaas-usage
   evidence: https://zapier.com/apps/seven/integrations/cognito-forms
   source: edge
-  status: pending-partner-spec
+  status: pending-generation
   arazzo: null
 - slug: seven-io-facebook-messenger
   label: Facebook Messenger
@@ -401,7 +401,7 @@
   type: marketplace
   marketplace: n8n-nodes-base
   channel: open-source-node
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Sms77
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Sms77
   source: edge
   relationship: ipaas-bridge
   contract_reference:
@@ -426,7 +426,7 @@
   type: marketplace
   marketplace: pipedream-components
   channel: open-source-node
-  evidence: https://github.com/PipedreamHQ/pipedream/tree/94800dd6de6640b942c65ea7ee655f71ac56d438/components/seven
+  evidence: https://github.com/PipedreamHQ/pipedream/tree/d5872355ef27b4efa769f05352f2820c299a456e/components/seven
   source: edge
   relationship: ipaas-bridge
   contract_reference:
