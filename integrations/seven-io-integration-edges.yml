@@ -14,6 +14,7 @@ checked:
 - https://zapier.com/api/v4/apps/
 - https://zapier.com/apps/seven-io/integrations
 - https://zapier.com/apps/seven/integrations
+- hubspot/integrations/hubspot-integration-edges.yml
 summary: null
 marketplace_apps:
 - marketplace: zapier
@@ -508,6 +509,23 @@ edges:
   direction: third-party
   category: App Builder
   partner_url: https://www.goodbarber.com/?utm_source=zapier.com&utm_medium=referral&utm_campaign=goodbarber_integration
+- partner_name: HubSpot (own)
+  partner: hubspot
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://ecosystem.hubspot.com/marketplace/listing/sms-text2speech-calls-by-seven
+  mirror_of: hubspot/integrations/hubspot-integration-edges.yml
+  apps:
+  - SMS, HLR & Voice by seven.io
+  listing_count: 1
+  detected: '2026-10-21'
+  detected_by: mirror-platform-listings.py
+  category: SMS
 templates:
 - title: Send sms in seven for new Jotform submissions
   url: https://zapier.com/apps/jotform/integrations/seven/255599096/send-sms-in-seven-for-new-jotform-submissions

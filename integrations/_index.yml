@@ -477,3 +477,16 @@
   relationship: ipaas-bridge
   status: pending-partner-spec
   arazzo: null
+- slug: seven-io-hubspot-own
+  label: HubSpot (own)
+  partner: hubspot
+  partner_name: HubSpot (own)
+  category: SMS
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://ecosystem.hubspot.com/marketplace/listing/sms-text2speech-calls-by-seven
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
