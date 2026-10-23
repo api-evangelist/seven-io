@@ -1,0 +1,14 @@
+{
+  "repo": "seven-io",
+  "feeds": [
+    {
+      "source": "https://www.seven.io/en/blog/",
+      "feed_url": "https://www.seven.io/en/blog/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "discovered"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-10-17T14:53:57Z"
+}
